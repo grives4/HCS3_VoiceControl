@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<queryresult success='true'
+    error='false'
+    numpods='8'
+    datatypes='Book,City,People,USState,WikipediaStats,Word'
+    timedout=''
+    timedoutpods=''
+    timing='2.015'
+    parsetiming='0.305'
+    parsetimedout='false'
+    recalculate=''
+    id='MSPa173227h7c70562fd31800003g7gg3cee7170595'
+    host='http://www2.wolframalpha.com'
+    server='22'
+    related='http://www2.wolframalpha.com/api/v2/relatedQueries.jsp?id=MSPa174227h7c70562fd31800003g8286g92de72346&amp;s=22'
+    version='2.6'>
+ <pod title='Input interpretation'
+     scanner='Identity'
+     id='Input'
+     position='100'
+     error='false'
+     numsubpods='1'>
+  <subpod title=''>
+   <plaintext>To Kill a Mockingbird | author</plaintext>
+   <img src='http://www2.wolframalpha.com/Calculate/MSP/MSP175227h7c70562fd31800005834ad59eihf1e15?MSPStoreType=image/gif&amp;s=22'
+       alt='To Kill a Mockingbird | author'
+       title='To Kill a Mockingbird | author'
+       width='216'
+       height='23' />
+  </subpod>
+ </pod>
+ <pod title='Result'
+     scanner='Data'
+     id='Result'
+     position='200'
+     error='false'
+     numsubpods='1'
+     primary='true'>
+  <subpod title=''>
+   <plaintext>Harper Lee</plaintext>
+   <img src='http://www2.wolframalpha.com/Calculate/MSP/MSP176227h7c70562fd31800002eb8b54c5bf5h244?MSPStoreType=image/gif&amp;s=22'
+       alt='Harper Lee'
+       title='Harper Lee'
+       width='72'
+       height='18' />
+  </subpod>
+ </pod>
+ <pod title='Basic information'
+     scanner='Data'
+     id='BasicInformation:PeopleData'
+     position='300'
+     error='false'
+     numsubpods='1'>
+  <subpod title=''>
+   <plaintext>full name | Nelle Harper Lee
+date of birth | Wednesday, April 28, 1926 (age: 87 years)
+place of birth | Monroeville, Alabama</plaintext>
+   <img src='http://www2.wolframalpha.com/Calculate/MSP/MSP177227h7c70562fd31800003gi03g15i9ha0300?MSPStoreType=image/gif&amp;s=22'
+       alt='full name | Nelle Harper Lee
+date of birth | Wednesday, April 28, 1926 (age: 87 years)
+place of birth | Monroeville, Alabama'
+       title='full name | Nelle Harper Lee
+date of birth | Wednesday, April 28, 1926 (age: 87 years)
+place of birth | Monroeville, Alabama'
+       width='415'
+       height='100' />
+  </subpod>
+ </pod>
+ <pod title='Basic properties'
+     scanner='Data'
+     id='BasicProperties:BookData'
+     position='400'
+     error='false'
+     numsubpods='1'>
+  <subpod title=''>
+   <plaintext>author | Harper Lee
+first publication date | July 11, 1960  (53 years ago)
+publisher | J. B. Lippincott
+original language | English
+awards | Pulitzer Prize for Fiction</plaintext>
+   <img src='http://www2.wolframalpha.com/Calculate/MSP/MSP178227h7c70562fd318000024698b47fic781bh?MSPStoreType=image/gif&amp;s=22'
+       alt='author | Harper Lee
+first publication date | July 11, 1960  (53 years ago)
+publisher | J. B. Lippincott
+original language | English
+awards | Pulitzer Prize for Fiction'
+       title='author | Harper Lee
+first publication date | July 11, 1960  (53 years ago)
+publisher | J. B. Lippincott
+original language | English
+awards | Pulitzer Prize for Fiction'
+       width='358'
+       height='164' />
+  </subpod>
+ </pod>
+ <pod title='Image'
+     scanner='Data'
+     id='Image:PeopleData'
+     position='500'
+     error='false'
+     numsubpods='0'
+     async='http://www2.wolframalpha.com/api/v2/asyncPod.jsp?id=MSPa179227h7c70562fd318000042dcgce1i05ggdf7&amp;s=22' />
+ <pod title='Timeline'
+     scanner='Data'
+     id='Timeline:PeopleData'
+     position='600'
+     error='false'
+     numsubpods='0'
+     async='http://www2.wolframalpha.com/api/v2/asyncPod.jsp?id=MSPa180227h7c70562fd318000040489dbhbfh872b3&amp;s=22' />
+ <pod title='Notable facts'
+     scanner='Data'
+     id='NotableFacts:PeopleData'
+     position='700'
+     error='false'
+     numsubpods='1'>
+  <subpod title=''>
+   <plaintext>Author best known for her novel To Kill a Mockingbird
+Recipient of many honors for her work, including the Presidential Medal of Freedom and a Pulitzer Prize
+Assisted in the research process for Truman Capote&apos;s book In Cold Blood</plaintext>
+   <img src='http://www2.wolframalpha.com/Calculate/MSP/MSP181227h7c70562fd31800005dcif5683ife6410?MSPStoreType=image/gif&amp;s=22'
+       alt='Author best known for her novel To Kill a Mockingbird
+Recipient of many honors for her work, including the Presidential Medal of Freedom and a Pulitzer Prize
+Assisted in the research process for Truman Capote&apos;s book In Cold Blood'
+       title='Author best known for her novel To Kill a Mockingbird
+Recipient of many honors for her work, including the Presidential Medal of Freedom and a Pulitzer Prize
+Assisted in the research process for Truman Capote&apos;s book In Cold Blood'
+       width='482'
+       height='95' />
+  </subpod>
+ </pod>
+ <pod title='Wikipedia page hits history'
+     scanner='Data'
+     id='PopularityPod:WikipediaStatsData'
+     position='800'
+     error='false'
+     numsubpods='0'
+     async='http://www2.wolframalpha.com/api/v2/asyncPod.jsp?id=MSPa182227h7c70562fd31800005fg6659i8iaee513&amp;s=22' />
+ <assumptions count='1'>
+  <assumption type='Clash'
+      word='to kill a mockingbird'
+      template='Assuming &quot;${word}&quot; is ${desc1}. Use as ${desc2} instead'
+      count='2'>
+   <value name='Book'
+       desc='a book'
+       input='*C.to+kill+a+mockingbird-_*Book-' />
+   <value name='Movie'
+       desc='a movie'
+       input='*C.to+kill+a+mockingbird-_*Movie-' />
+  </assumption>
+ </assumptions>
+ <sources count='2'>
+  <source url='http://www.wolframalpha.com/sources/BookDataSourceInformationNotes.html'
+      text='Book data' />
+  <source url='http://www.wolframalpha.com/sources/PeopleDataSourceInformationNotes.html'
+      text='People data' />
+ </sources>
+</queryresult>

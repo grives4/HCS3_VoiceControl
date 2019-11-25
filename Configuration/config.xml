@@ -1,0 +1,45 @@
+<configs>
+   <config name="MCE">
+      <item name="ZoneA" Title="Great Room" Off="Great RoomOff" On="Great RoomOn" Up="Great Roomup" Down="Great Roomdown"/>
+      <item name="ZoneB" Title="Atrium" Off="AtriumOff" On="AtriumOn" Up="Atriumup" Down="Atriumdown"/>   
+   </config>
+   <config name="keypress">
+      <item location="1" address="http://192.168.10.30:8001/command" />
+   </config>
+   <config name="serial">
+      <item location="1" address="/dev/ttyUSB0" baud="19200"/>
+      <item location="2" address="/dev/ttyUSB1" baud="19200"/>
+   </config>
+   <config name="locations">
+      <item name="Great Room Front" zone="2" chassis="1"/>
+      <item name="Great Room Rear" zone="1" chassis="1"/>
+      <item name="Atrium 1" zone="3" chassis="1"/>
+      <item name="Atrium 2" zone="4" chassis="1"/>
+      <item name="Master Bedroom" zone="5" chassis="1"/>
+      <item name="Master Bath" zone="6" chassis="1"/>
+      <item name="Hobby Room" zone="1" chassis="2"/>
+      <item name="Garage" zone="2" chassis="2"/>
+      <item name="Back Porch" zone="3" chassis="2"/>
+      <item name="Lower Deck" zone="4" chassis="2"/>
+      <item name="Upstairs Porch" zone="5" chassis="2"/>
+   </config> 
+   <config name="options">
+      <item name="Off" source="0"/>
+      <item name="Radio" source="R1"/>
+      <item name="Pi-Pandora" source="4"/>
+      <item name="TV" source="2"/>
+      <item name="Phone-Pandora" source="3"/>
+   </config> 
+   <config name="radiostations">
+      <item name="90.5"/>
+      <item name="93.3"/>
+      <item name="93.7"/>
+      <item name="94.7"/>
+      <item name="96.7"/>
+      <item name="98.1"/>
+      <item name="101.5"/>
+      <item name="103.5"/>
+      <item name="104.9"/>
+      <item name="107.1"/>
+   </config>       
+</configs>

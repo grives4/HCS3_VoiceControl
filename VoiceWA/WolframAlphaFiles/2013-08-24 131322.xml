@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<queryresult success='true'
+    error='false'
+    numpods='5'
+    datatypes='Math'
+    timedout=''
+    timedoutpods=''
+    timing='0.87'
+    parsetiming='0.416'
+    parsetimedout='false'
+    recalculate=''
+    id='MSPa1231205fc6d0h684c3b00000588c99h608hdaagg'
+    host='http://www2.wolframalpha.com'
+    server='15'
+    related='http://www2.wolframalpha.com/api/v2/relatedQueries.jsp?id=MSPa1232205fc6d0h684c3b00000175e0ih61hba8h0e&amp;s=15'
+    version='2.6'>
+ <pod title='Input'
+     scanner='Identity'
+     id='Input'
+     position='100'
+     error='false'
+     numsubpods='1'>
+  <subpod title=''>
+   <plaintext>45×6</plaintext>
+   <img src='http://www2.wolframalpha.com/Calculate/MSP/MSP1233205fc6d0h684c3b0000036addid0h33f7dhd?MSPStoreType=image/gif&amp;s=15'
+       alt='45×6'
+       title='45×6'
+       width='38'
+       height='18' />
+  </subpod>
+ </pod>
+ <pod title='Result'
+     scanner='StepByStep'
+     id='Result'
+     position='200'
+     error='false'
+     numsubpods='1'
+     primary='true'>
+  <subpod title=''>
+   <plaintext>270</plaintext>
+   <img src='http://www2.wolframalpha.com/Calculate/MSP/MSP1234205fc6d0h684c3b000001c8928dc848cee67?MSPStoreType=image/gif&amp;s=15'
+       alt='270'
+       title='270'
+       width='24'
+       height='18' />
+  </subpod>
+  <states count='1'>
+   <state name='Step-by-step solution'
+       input='Result__Step-by-step solution' />
+  </states>
+ </pod>
+ <pod title='Number name'
+     scanner='Integer'
+     id='NumberName'
+     position='300'
+     error='false'
+     numsubpods='1'>
+  <subpod title=''>
+   <plaintext>two hundred seventy</plaintext>
+   <img src='http://www2.wolframalpha.com/Calculate/MSP/MSP1235205fc6d0h684c3b000000ge06id0c7102f73?MSPStoreType=image/gif&amp;s=15'
+       alt='two hundred seventy'
+       title='two hundred seventy'
+       width='138'
+       height='18' />
+  </subpod>
+ </pod>
+ <pod title='Number line'
+     scanner='NumberLine'
+     id='NumberLine'
+     position='400'
+     error='false'
+     numsubpods='0'
+     async='http://www2.wolframalpha.com/api/v2/asyncPod.jsp?id=MSPa1236205fc6d0h684c3b000002aa3ai8962hhaa47&amp;s=15' />
+ <pod title='Illustration'
+     scanner='Arithmetic'
+     id='Illustration'
+     position='500'
+     error='false'
+     numsubpods='1'>
+  <subpod title=''>
+   <plaintext> | 6
+45 | </plaintext>
+   <img src='http://www2.wolframalpha.com/Calculate/MSP/MSP1237205fc6d0h684c3b0000052i53d97af732b9g?MSPStoreType=image/gif&amp;s=15'
+       alt=' | 6
+45 | '
+       title=' | 6
+45 | '
+       width='174'
+       height='49' />
+  </subpod>
+ </pod>
+</queryresult>

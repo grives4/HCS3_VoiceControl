@@ -1,0 +1,217 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<queryresult success='true'
+    error='false'
+    numpods='9'
+    datatypes='Species'
+    timedout=''
+    timedoutpods=''
+    timing='1.997'
+    parsetiming='0.232'
+    parsetimedout='false'
+    recalculate=''
+    id='MSPa481228426gbd76e0c360000152a7h59cc38fd83'
+    host='http://www2.wolframalpha.com'
+    server='22'
+    related='http://www2.wolframalpha.com/api/v2/relatedQueries.jsp?id=MSPa482228426gbd76e0c36000025068fdf71733fd5&amp;s=22'
+    version='2.6'>
+ <pod title='Input interpretation'
+     scanner='Identity'
+     id='Input'
+     position='100'
+     error='false'
+     numsubpods='1'>
+  <subpod title=''>
+   <plaintext>alpaca  (animal)</plaintext>
+   <img src='http://www2.wolframalpha.com/Calculate/MSP/MSP483228426gbd76e0c36000051b8hc37768cef86?MSPStoreType=image/gif&amp;s=22'
+       alt='alpaca  (animal)'
+       title='alpaca  (animal)'
+       width='108'
+       height='18' />
+  </subpod>
+ </pod>
+ <pod title='Scientific name'
+     scanner='Data'
+     id='ScientificName:SpeciesData'
+     position='200'
+     error='false'
+     numsubpods='1'>
+  <subpod title=''>
+   <plaintext>Lama pacos</plaintext>
+   <img src='http://www2.wolframalpha.com/Calculate/MSP/MSP484228426gbd76e0c3600000g2feaigi7951abi?MSPStoreType=image/gif&amp;s=22'
+       alt='Lama pacos'
+       title='Lama pacos'
+       width='76'
+       height='18' />
+  </subpod>
+ </pod>
+ <pod title='Taxonomy'
+     scanner='Data'
+     id='Taxonomy:SpeciesData'
+     position='300'
+     error='false'
+     numsubpods='1'>
+  <subpod title=''>
+   <plaintext>kingdom | Animalia  (animals)
+phylum | Chordata  (chordates)
+class | Mammalia  (mammals)
+order | Artiodactyla  (antelope, giraffe, camels, pigs, hippos...)
+family | Camelidae  (camels, llamas, alpacas, guanacos, vicunas...)
+genus | Lama
+species | Lama pacos  (alpaca)</plaintext>
+   <img src='http://www2.wolframalpha.com/Calculate/MSP/MSP485228426gbd76e0c3600000f68g8ha73gef6af?MSPStoreType=image/gif&amp;s=22'
+       alt='kingdom | Animalia  (animals)
+phylum | Chordata  (chordates)
+class | Mammalia  (mammals)
+order | Artiodactyla  (antelope, giraffe, camels, pigs, hippos...)
+family | Camelidae  (camels, llamas, alpacas, guanacos, vicunas...)
+genus | Lama
+species | Lama pacos  (alpaca)'
+       title='kingdom | Animalia  (animals)
+phylum | Chordata  (chordates)
+class | Mammalia  (mammals)
+order | Artiodactyla  (antelope, giraffe, camels, pigs, hippos...)
+family | Camelidae  (camels, llamas, alpacas, guanacos, vicunas...)
+genus | Lama
+species | Lama pacos  (alpaca)'
+       width='487'
+       height='228' />
+  </subpod>
+ </pod>
+ <pod title='Biological properties'
+     scanner='Species'
+     id='SpeciesDataPhysicalProperties'
+     position='400'
+     error='false'
+     numsubpods='3'>
+  <subpod title='Basic properties'>
+   <plaintext>maximum recorded lifespan | 25.8 years  (in captivity)
+weight | 140 lb  (pounds)</plaintext>
+   <img src='http://www2.wolframalpha.com/Calculate/MSP/MSP486228426gbd76e0c3600005f48c92fb29a15eg?MSPStoreType=image/gif&amp;s=22'
+       alt='maximum recorded lifespan | 25.8 years  (in captivity)
+weight | 140 lb  (pounds)'
+       title='maximum recorded lifespan | 25.8 years  (in captivity)
+weight | 140 lb  (pounds)'
+       width='390'
+       height='68' />
+  </subpod>
+  <subpod title='Reproduction and development'>
+   <plaintext>age of sexual maturity (female) | 1.2 years
+age of sexual maturity (male) | 1.4 years</plaintext>
+   <img src='http://www2.wolframalpha.com/Calculate/MSP/MSP487228426gbd76e0c3600004fe0a538f53b7cd5?MSPStoreType=image/gif&amp;s=22'
+       alt='age of sexual maturity (female) | 1.2 years
+age of sexual maturity (male) | 1.4 years'
+       title='age of sexual maturity (female) | 1.2 years
+age of sexual maturity (male) | 1.4 years'
+       width='315'
+       height='68' />
+  </subpod>
+  <subpod title=''>
+   <plaintext>(typical values, except where otherwise noted)</plaintext>
+   <img src='http://www2.wolframalpha.com/Calculate/MSP/MSP488228426gbd76e0c36000059f5b6695f0gc10c?MSPStoreType=image/gif&amp;s=22'
+       alt='(typical values, except where otherwise noted)'
+       title='(typical values, except where otherwise noted)'
+       width='249'
+       height='20' />
+  </subpod>
+  <states count='1'>
+   <state name='Show metric'
+       input='SpeciesDataPhysicalProperties__Show metric' />
+  </states>
+ </pod>
+ <pod title='Genome information'
+     scanner='Data'
+     id='GenomeSummary:SpeciesData'
+     position='500'
+     error='false'
+     numsubpods='1'>
+  <subpod title=''>
+   <plaintext> | sequence length | genes | RNAs | proteins
+mitochondrion | 16652 | 13 | 24 | 13
+(no sequenced chromosomes)</plaintext>
+   <img src='http://www2.wolframalpha.com/Calculate/MSP/MSP489228426gbd76e0c3600003e8963h286a79g24?MSPStoreType=image/gif&amp;s=22'
+       alt=' | sequence length | genes | RNAs | proteins
+mitochondrion | 16652 | 13 | 24 | 13
+(no sequenced chromosomes)'
+       title=' | sequence length | genes | RNAs | proteins
+mitochondrion | 16652 | 13 | 24 | 13
+(no sequenced chromosomes)'
+       width='442'
+       height='89' />
+  </subpod>
+ </pod>
+ <pod title='Image'
+     scanner='Data'
+     id='Image:SpeciesData'
+     position='600'
+     error='false'
+     numsubpods='0'
+     async='http://www2.wolframalpha.com/api/v2/asyncPod.jsp?id=MSPa490228426gbd76e0c360000443c1cgc352fc912&amp;s=22' />
+ <pod title='Species authority'
+     scanner='Data'
+     id='SpeciesAuthorithy:SpeciesData'
+     position='700'
+     error='false'
+     numsubpods='1'>
+  <subpod title=''>
+   <plaintext>Linnaeus, 1758</plaintext>
+   <img src='http://www2.wolframalpha.com/Calculate/MSP/MSP491228426gbd76e0c360000511a0ac1b46d8eac?MSPStoreType=image/gif&amp;s=22'
+       alt='Linnaeus, 1758'
+       title='Linnaeus, 1758'
+       width='100'
+       height='18' />
+  </subpod>
+ </pod>
+ <pod title='Other members of genus Lama'
+     scanner='Species'
+     id='SpeciesScannerOtherMembersOfSpecies'
+     position='800'
+     error='false'
+     numsubpods='1'>
+  <subpod title=''>
+   <plaintext>Lama glama  (llama)  |  Lama guanicoe  (guanaco)</plaintext>
+   <img src='http://www2.wolframalpha.com/Calculate/MSP/MSP492228426gbd76e0c3600003ecd0947d8fib400?MSPStoreType=image/gif&amp;s=22'
+       alt='Lama glama  (llama)  |  Lama guanicoe  (guanaco)'
+       title='Lama glama  (llama)  |  Lama guanicoe  (guanaco)'
+       width='326'
+       height='18' />
+  </subpod>
+ </pod>
+ <pod title='Taxonomic network'
+     scanner='Data'
+     id='TaxonomyGraph:SpeciesData'
+     position='900'
+     error='false'
+     numsubpods='1'>
+  <subpod title=''>
+   <plaintext></plaintext>
+   <img src='http://www2.wolframalpha.com/Calculate/MSP/MSP493228426gbd76e0c360000540e8g13fhdeg3ef?MSPStoreType=image/gif&amp;s=22'
+       alt=''
+       title=''
+       width='496'
+       height='285' />
+  </subpod>
+  <states count='1'>
+   <state name='Show as network'
+       input='TaxonomyGraph:SpeciesData__Show as network' />
+  </states>
+ </pod>
+ <assumptions count='1'>
+  <assumption type='Clash'
+      word='alpaca'
+      template='Assuming &quot;${word}&quot; is ${desc1}. Use as ${desc2} instead'
+      count='2'>
+   <value name='Species'
+       desc='a species specification'
+       input='*C.alpaca-_*Species-' />
+   <value name='Word'
+       desc='a word'
+       input='*C.alpaca-_*Word-' />
+  </assumption>
+ </assumptions>
+ <sources count='2'>
+  <source url='http://www.wolframalpha.com/sources/GenomeSequenceDataSourceInformationNotes.html'
+      text='Genome sequence data' />
+  <source url='http://www.wolframalpha.com/sources/SpeciesDataSourceInformationNotes.html'
+      text='Species data' />
+ </sources>
+</queryresult>

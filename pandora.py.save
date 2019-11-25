@@ -1,0 +1,350 @@
+import os
+import re
+import time
+import threading
+import elementtree.ElementTree as ET
+import pdb
+import subprocess
+from pandora import *
+#import Queue 
+
+
+#from controllers import *
+#from requestprocessor import *
+
+class PandoraProcessor(threading.Thread):
+   def __init__(self,PandoraQueue,PandoraStationList,PandoraNowPlaying,PandoraSong,PandoraTime,PandoraEvent):
+      super(PandoraProcessor, self).__init__()
+      self.PandoraQueue = PandoraQueue
+      self.PandoraStationList = PandoraStationList
+      self.PandoraNowPlaying = PandoraNowPlaying
+      self.PandoraSong = PandoraSong
+      self.PandoraTime = PandoraTime
+      self.PandoraEvent = PandoraEvent
+      self.PandoraRunning = False
+   def run(self):
+      while 1 == 1:
+         self.PandoraEvent.wait()
+         while not self.PandoraQueue.empty():   
+            PandoraRequest = self.PandoraQueue.get()
+            #print "In pandora line 22"
+            print(PandoraRequest)
+            print(PandoraRequest[1])
+            if PandoraRequest[0] == "keypress":
+                commands = self.get_commands()
+                tempActions = (item["actions"] for item in commands if item["name"].lower() == PandoraRequest[1].lower()).next()
+                #print (tempActions)
+                for action in tempActions:   
+                    
+                    #print(action)
+    
+                    
+                    #print 'in for action statement pandora'
+            		#-------------------
+            		#  Code to parse command
+            		#-------------------
+            
+                    if (action.get('data') == 'zzz'): #start pandora
+                       #try:               
+                           print('received start pandora command - pandora.py')
+                           # First try to shut down pandora if running.  This will clear the fifo out file
+                           path = '/home/pi/.config/pianobar/ctl'
+                           #fifo = open(path, "w")
+                           #fifo.write("q")
+                           #fifo.close()
+                           print "Quiting pandora - pandora.py"
+                           # Next  start pandora using .sh script.
+                           #subprocess.call('/home/pi/HCS3/Headless_pianobar.sh',shell=True)
+                           #subprocess.call('cd ./; cd /home/pi/.config/; /home/pi/HCS3/Headless_pianobar.sh',shell=True)
+                           subprocess.call('pianobar &>/home/pi/.config/pianobar/out',shell=True)
+                           print "Starting pandora - pandora.py"
+                           #Need to wait until pandora is up
+                           time.sleep(3)
+                           #Get station list and fill out screen.
+                           path = '/home/pi/.config/pianobar/ctl'
+                           fifo = open(path, "w")
+                           fifo.write("s")
+                           fifo.write("\r\n")
+                           fifo.close()
+                           #Now fill out screen - Get station list
+                           #Need to wait until pandora sends out station list
+                           time.sleep(.2)
+                           print ('starting to get station list pandora.py')
+                           pandorastations=self.get_stations()
+                           #Populate screen by sending to the queue in HCS3.py
+                           print "Populating station list - pandora.py"
+                           print pandorastations[:]
+                           for stationlist in pandorastations[:]:
+                               #self.PandoraOut.put(stationlist)
+                               self.PandoraStationList.put(stationlist)
+                               print stationlist
+                               print 'passed through queue for look - pandora.py' 
+                           #self.PandoraOut.set()
+                    
+                           print 'in pandora.py getting station list to put in queue'
+                           #q.join() 
+                           
+                           print ('pandora.py index')
+                           #print index
+                           #station_list = pandora().get_stations() -- why is this bad???
+                           print ('received station list')
+                           print (pandorastations)
+                           #Populate screen
+                           print "Populating station name - pandora.py"
+                           # Do a get station to find out what station is playing
+                           currentpandorastation=self.get_current_pandora_station()
+                           self.PandoraNowPlaying.put(currentpandorastation)
+                           print "current station pandora.py"
+                           print (currentpandorastation)
+                           # Determine which station is playing -- send out station number to set same station and set radio button
+                           partstation=currentpandorastation[8:15]
+                           print partstation
+                           for item in pandorastations:
+                              if partstation in item:
+                                  print 'Found ', item, item[2]
+                           #need to set radio button based on item[2]
+                           #need to start up to repopulate song and title
+                    elif (action.get('data') == 'q'):   #quit pandora
+                           path = '/home/pi/.config/pianobar/ctl'
+                           fifo = open(path, "w")
+                           fifo.write("q")
+                           fifo.close()
+                           print "Quiting pandora"
+                    elif (action.get('data') == 'n'):  #next song
+                           print "before next song command - pandora.py"
+                           path = '/home/pi/.config/pianobar/ctl'
+                           fifo = open(path, "w")
+                           fifo.write("n")
+                           fifo.close()
+                           print "next song pandora"
+                           #read what is in fifo file
+                           path = '/home/pi/.config/pianobar/out'
+                           fifo = open(path, "r")
+                           for line in fifo:
+                                print "Received: " + line,
+                           fifo.close()
+                    elif (action.get('data') == 'p'): #pause play
+                           print "before pause/play commant - pandora"
+                           path = '/home/pi/.config/pianobar/ctl'
+                           fifo = open(path, "w")
+                           fifo.write("p")
+                           fifo.close()
+                           print "pause/play pandora"
+                    elif (action.get('data') == '+'): #like song
+                           path = '/home/pi/.config/pianobar/ctl'
+                           fifo = open(path, "w")
+                           fifo.write("+")
+                           fifo.close()
+                           print "like song pandora" 
+                    elif (action.get('data') == '+'): #unlike song -- note change to - after testing
+                           path = '/home/pi/.config/pianobar/ctl'
+                           fifo = open(path, "w")
+                           fifo.write("-")
+                           fifo.close()
+                           print "unlike song pandora" 
+                    #elif print "issue with pandora data handling'
+                
+                       #except:                    
+
+            #if PandoraRequest[0] == "changestation":
+                #print "Changing pandora station - pandora.py"
+                #read station
+                #chgstation=self.change_pandora_station()
+
+
+            self.PandoraQueue.task_done()
+            #self.PandoraStationList.task_done()
+            #self.PandoraNowPlaying.task_done()
+            #self.PandoraSong.task_done()
+            #self.PandoraTime.task_done()
+            self.PandoraEvent.clear()
+
+   
+  
+   
+   def get_commands(self):
+      try:
+         XMLtree = ET.parse("Configuration/commands.xml")
+         doc = XMLtree.getroot()
+         commands = []
+         for elem in doc.findall('command'):
+            actions = []
+            for action in elem.findall('action'):
+               tempAction = {'type' : action.get('type'), 'data': action.get('data'), 'delay' : action.get('delay') , 'location' : action.get('location')}
+               actions.append(tempAction)
+            commands.append({ 'name' : elem.get('name'), 'actions' : actions })
+      except:
+         commands = ""
+      return commands
+   
+   
+   
+   
+   
+   
+   
+   def get_stations(self):
+      try:
+          print "in pandora.py get_run_time"
+          path = '/home/pi/.config/pianobar/out'
+          fifo = open(path, "r")
+          temp = fifo.read()
+          #print 'in pandora.py -- get_stations'
+          #print temp
+          if re.finditer (r'.\)[ ][^U].*',temp,re.M): 
+            try:
+               list_stations = []
+               for stationlist in re.finditer (r'\t.[^ns]\)[ ][^U].*',temp,re.M):
+                  #print "stationlist.group() final: ",stationlist.group()
+                  list_stations.append(stationlist.group())
+               #print 'pandora.py'   
+               #print list_stations[:]
+            except:
+                pass    
+      except:
+          pass   
+      return list_stations[:]
+          #return ['Test Line 1','Test Line 2','Test Line 3','Test Line 4','Test Line 5','d','e','f','g','h','i','j','k','l','m','n','o','p']
+    
+   
+   def get_station_list (self):
+      try:
+          #print "in pandora.py get_station_list"
+          path = '/home/pi/.config/pianobar/out'
+          fifo = open(path, "r")
+          temp = fifo.read()
+          #print temp
+          #global list_stations
+          list_stations = []
+          #zero out station list
+          #del list_stations [:] 
+          for stationlist in re.finditer (r'\t.[^ns]\)[ ][^U].*',temp,re.M):
+          #print "stationlist.group() final: ",stationlist.group()
+             list_stations.append(stationlist.group())
+          #print list_stations[:]
+      except:
+          pass 
+
+
+   def get_run_time(self, time):
+      print "in pandora.py get_run_time"
+      path = '/home/pi/.config/pianobar/out'
+      fifo = open(path, "r")
+      temp = fifo.read()
+      #print temp
+      for songtime in re.finditer (r'-\d\d:\d\d/\d\d:\d\d', temp, re.M):
+         pass
+        
+      #pdb.set_trace()
+            
+      #print "past search1"
+      if songtime:
+        print "songtime.group() final : ", songtime.group()
+      else:
+        print "No match!! pandora.py"
+        #now get song information
+      for songinfo in re.finditer (r'SONG:.*',temp,re.M):
+        pass   
+      if songinfo:
+        print "songinfo.group() final: ",songinfo.group()  
+      else:
+        print "No match!! pandora.py songinfo" 
+        
+         #now get station information
+      for stationinfo in re.finditer (r'STATION:.*',temp,re.M):
+        pass   
+      if stationinfo:
+        print "stationinfo.group() final: ",stationinfo.group()  
+      else:
+        print "No match!! pandora.py songinfo"  
+        
+         #now get station list
+      for stationlist in re.finditer (r'.\)\s[^U].*',temp,re.M):
+        print "stationlist.group() final: ",stationlist.group()
+      
+      #fifo.close()
+        
+   def get_pandora_song_time(self):
+      print "in pandora.py get_run_time"
+      path = '/home/pi/.config/pianobar/out'
+      fifo = open(path, "r")
+      temp = fifo.read()
+      #print temp
+      for songtime in re.finditer (r'-\d\d:\d\d/\d\d:\d\d', temp, re.M):
+         pass
+        
+      #pdb.set_trace()
+            
+      #print "past search1"
+      if songtime:
+        print "songtime.group() final : ", songtime.group()
+        holdit1=(songtime.group())
+      else:
+        print "No match!! pandora.py"
+        #now get song information
+      for songinfo in re.finditer (r'SONG:.*',temp,re.M):
+        pass   
+      if songinfo:
+        print "songinfo.group() final: ",songinfo.group()
+        holdit2=str(songinfo.group())  
+      else:
+        print "No match!! pandora.py song and time info" 
+        
+      holdit = holdit1 + " " + holdit2
+      return holdit
+      
+   def get_pandora_song(self):
+      print "in pandora.py get_song_name"
+      path = '/home/pi/.config/pianobar/out'
+      fifo = open(path, "r")
+      temp = fifo.read()
+      #now get song information
+      for songinfo in re.finditer (r'SONG:.*',temp,re.M):
+        pass   
+      if songinfo:
+        print "songinfo.group() final: ",songinfo.group()
+        holdit=str(songinfo.group())  
+      else:
+        print "No match!! pandora.py songinfo" 
+        
+      return holdit
+      
+   def get_current_pandora_station(self):
+      print "in pandora.py get_current_station"
+      path = '/home/pi/.config/pianobar/out'
+      fifo = open(path, "r")
+      temp = fifo.read()
+               #now get station information
+      for stationinfo in re.finditer (r'STATION:.*',temp,re.M):
+        pass   
+      if stationinfo:
+        #print "stationinfo.group() final: ",stationinfo.group()
+        stationstring=str(stationinfo.group())  
+      else:
+        print "No match!! pandora.py stationinfo"  
+      return stationstring     
+          
+      
+      #fifo.close()
+        
+         
+      
+   def change_pandora_station(self, station):
+      print "in pandora - change_pandora_station"
+      print station
+      #station_number = re.match (r'[^ ].',station,re.M)
+      print station[1]
+      path = '/home/pi/.config/pianobar/ctl'
+      fifo = open(path, "w")
+      fifo.write("s")
+      fifo.write(station[2])
+      fifo.write("\r\n")
+      fifo.close()
+      
+          
+       
+    
+      #fifo.close()
+    
+      
+      

@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<queryresult success='true'
+    error='false'
+    numpods='9'
+    datatypes='Book,City,People,USState,WikipediaStats,Word'
+    timedout=''
+    timedoutpods=''
+    timing='2.281'
+    parsetiming='0.243'
+    parsetimedout='false'
+    recalculate=''
+    id='MSPa423221abcfd21fefh7e90000245gbei1iiei1hci'
+    host='http://www2.wolframalpha.com'
+    server='25'
+    related='http://www2.wolframalpha.com/api/v2/relatedQueries.jsp?id=MSPa423321abcfd21fefh7e900002cc92cbhh7gfae29&amp;s=25'
+    version='2.6'>
+ <pod title='Input interpretation'
+     scanner='Identity'
+     id='Input'
+     position='100'
+     error='false'
+     numsubpods='1'>
+  <subpod title=''>
+   <plaintext>The Great Gatsby | author</plaintext>
+   <img src='http://www2.wolframalpha.com/Calculate/MSP/MSP423421abcfd21fefh7e90000444e1hch5edfh7a8?MSPStoreType=image/gif&amp;s=25'
+       alt='The Great Gatsby | author'
+       title='The Great Gatsby | author'
+       width='187'
+       height='23' />
+  </subpod>
+ </pod>
+ <pod title='Result'
+     scanner='Data'
+     id='Result'
+     position='200'
+     error='false'
+     numsubpods='1'
+     primary='true'>
+  <subpod title=''>
+   <plaintext>F. Scott Fitzgerald</plaintext>
+   <img src='http://www2.wolframalpha.com/Calculate/MSP/MSP423521abcfd21fefh7e900001b98a0b4hee4b3f5?MSPStoreType=image/gif&amp;s=25'
+       alt='F. Scott Fitzgerald'
+       title='F. Scott Fitzgerald'
+       width='118'
+       height='18' />
+  </subpod>
+ </pod>
+ <pod title='Basic information'
+     scanner='Data'
+     id='BasicInformation:PeopleData'
+     position='300'
+     error='false'
+     numsubpods='1'>
+  <subpod title=''>
+   <plaintext>full name | Francis Scott Key Fitzgerald
+date of birth | Thursday, September 24, 1896 (116 years ago)
+place of birth | Saint Paul, Minnesota
+date of death | Saturday, December 21, 1940 (age: 44 years) 
+ (72 years ago)
+place of death | Los Angeles, California</plaintext>
+   <img src='http://www2.wolframalpha.com/Calculate/MSP/MSP423621abcfd21fefh7e90000464e9498ef7ga67g?MSPStoreType=image/gif&amp;s=25'
+       alt='full name | Francis Scott Key Fitzgerald
+date of birth | Thursday, September 24, 1896 (116 years ago)
+place of birth | Saint Paul, Minnesota
+date of death | Saturday, December 21, 1940 (age: 44 years) 
+ (72 years ago)
+place of death | Los Angeles, California'
+       title='full name | Francis Scott Key Fitzgerald
+date of birth | Thursday, September 24, 1896 (116 years ago)
+place of birth | Saint Paul, Minnesota
+date of death | Saturday, December 21, 1940 (age: 44 years) 
+ (72 years ago)
+place of death | Los Angeles, California'
+       width='438'
+       height='181' />
+  </subpod>
+ </pod>
+ <pod title='Basic properties'
+     scanner='Data'
+     id='BasicProperties:BookData'
+     position='400'
+     error='false'
+     numsubpods='1'>
+  <subpod title=''>
+   <plaintext>author | F. Scott Fitzgerald
+first publication date | April 10, 1925  (88 years ago)
+publisher | Charles Scribner&apos;s Sons
+original language | English</plaintext>
+   <img src='http://www2.wolframalpha.com/Calculate/MSP/MSP423721abcfd21fefh7e900002d10e7e1b2chh30f?MSPStoreType=image/gif&amp;s=25'
+       alt='author | F. Scott Fitzgerald
+first publication date | April 10, 1925  (88 years ago)
+publisher | Charles Scribner&apos;s Sons
+original language | English'
+       title='author | F. Scott Fitzgerald
+first publication date | April 10, 1925  (88 years ago)
+publisher | Charles Scribner&apos;s Sons
+original language | English'
+       width='363'
+       height='132' />
+  </subpod>
+ </pod>
+ <pod title='Image'
+     scanner='Data'
+     id='Image:PeopleData'
+     position='500'
+     error='false'
+     numsubpods='0'
+     async='http://www2.wolframalpha.com/api/v2/asyncPod.jsp?id=MSPa423821abcfd21fefh7e900001ei91bhg9e1a08cd&amp;s=25' />
+ <pod title='Timeline'
+     scanner='Data'
+     id='Timeline:PeopleData'
+     position='600'
+     error='false'
+     numsubpods='0'
+     async='http://www2.wolframalpha.com/api/v2/asyncPod.jsp?id=MSPa423921abcfd21fefh7e9000012b8igiafdf7ie43&amp;s=25' />
+ <pod title='Notable facts'
+     scanner='Data'
+     id='NotableFacts:PeopleData'
+     position='700'
+     error='false'
+     numsubpods='1'>
+  <subpod title=''>
+   <plaintext>American author considered to be one of the greatest American writers of the 20th century
+Notable works include The Great Gatsby, This Side of Paradise, The Beautiful and Damned, and Tender is the Night
+Considered to be a member of the Lost Generation following World War I with Ernest Hemingway and T. S. Eliot, among others</plaintext>
+   <img src='http://www2.wolframalpha.com/Calculate/MSP/MSP424021abcfd21fefh7e900002b4didg4h595b0df?MSPStoreType=image/gif&amp;s=25'
+       alt='American author considered to be one of the greatest American writers of the 20th century
+Notable works include The Great Gatsby, This Side of Paradise, The Beautiful and Damned, and Tender is the Night
+Considered to be a member of the Lost Generation following World War I with Ernest Hemingway and T. S. Eliot, among others'
+       title='American author considered to be one of the greatest American writers of the 20th century
+Notable works include The Great Gatsby, This Side of Paradise, The Beautiful and Damned, and Tender is the Night
+Considered to be a member of the Lost Generation following World War I with Ernest Hemingway and T. S. Eliot, among others'
+       width='489'
+       height='149' />
+  </subpod>
+ </pod>
+ <pod title='Physical characteristics'
+     scanner='Data'
+     id='PhysicalCharacteristics:PeopleData'
+     position='800'
+     error='false'
+     numsubpods='1'>
+  <subpod title=''>
+   <plaintext>height | 5&apos; 8.1&quot;</plaintext>
+   <img src='http://www2.wolframalpha.com/Calculate/MSP/MSP424121abcfd21fefh7e90000551icii090i45e54?MSPStoreType=image/gif&amp;s=25'
+       alt='height | 5&apos; 8.1&quot;'
+       title='height | 5&apos; 8.1&quot;'
+       width='134'
+       height='36' />
+  </subpod>
+  <states count='1'>
+   <state name='Metric'
+       input='PhysicalCharacteristics:PeopleData__Metric' />
+  </states>
+ </pod>
+ <pod title='Wikipedia page hits history'
+     scanner='Data'
+     id='PopularityPod:WikipediaStatsData'
+     position='900'
+     error='false'
+     numsubpods='0'
+     async='http://www2.wolframalpha.com/api/v2/asyncPod.jsp?id=MSPa424221abcfd21fefh7e9000046d5939912h9fgbe&amp;s=25' />
+ <sources count='2'>
+  <source url='http://www.wolframalpha.com/sources/BookDataSourceInformationNotes.html'
+      text='Book data' />
+  <source url='http://www.wolframalpha.com/sources/PeopleDataSourceInformationNotes.html'
+      text='People data' />
+ </sources>
+</queryresult>

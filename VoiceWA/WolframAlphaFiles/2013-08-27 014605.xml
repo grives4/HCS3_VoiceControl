@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<queryresult success='true'
+    error='false'
+    numpods='5'
+    datatypes='People'
+    timedout=''
+    timedoutpods=''
+    timing='1.914'
+    parsetiming='0.295'
+    parsetimedout='false'
+    recalculate=''
+    id='MSPa4852171ff79hfgigi11000034gdia52hb1a798a'
+    host='http://www2.wolframalpha.com'
+    server='11'
+    related='http://www2.wolframalpha.com/api/v2/relatedQueries.jsp?id=MSPa4862171ff79hfgigi11000025e4194abd5g78b5&amp;s=11'
+    version='2.6'>
+ <pod title='Input interpretation'
+     scanner='Identity'
+     id='Input'
+     position='100'
+     error='false'
+     numsubpods='1'>
+  <subpod title=''>
+   <plaintext>Barack Obama | height</plaintext>
+   <img src='http://www2.wolframalpha.com/Calculate/MSP/MSP4872171ff79hfgigi11000019hfe517cegib395?MSPStoreType=image/gif&amp;s=11'
+       alt='Barack Obama | height'
+       title='Barack Obama | height'
+       width='169'
+       height='23' />
+  </subpod>
+ </pod>
+ <pod title='Result'
+     scanner='Data'
+     id='Result'
+     position='200'
+     error='false'
+     numsubpods='1'
+     primary='true'>
+  <subpod title=''>
+   <plaintext>6&apos; 0.8&quot;</plaintext>
+   <img src='http://www2.wolframalpha.com/Calculate/MSP/MSP4882171ff79hfgigi110000492h753i6a6ef514?MSPStoreType=image/gif&amp;s=11'
+       alt='6&apos; 0.8&quot;'
+       title='6&apos; 0.8&quot;'
+       width='45'
+       height='18' />
+  </subpod>
+  <states count='1'>
+   <state name='Show metric'
+       input='Result__Show metric' />
+  </states>
+ </pod>
+ <pod title='Unit conversions'
+     scanner='Unit'
+     id='UnitConversion'
+     position='300'
+     error='false'
+     numsubpods='3'>
+  <subpod title=''>
+   <plaintext>~~ 1.85 meters</plaintext>
+   <img src='http://www2.wolframalpha.com/Calculate/MSP/MSP4892171ff79hfgigi11000057e0a1b3ff4db47d?MSPStoreType=image/gif&amp;s=11'
+       alt='~~ 1.85 meters'
+       title='~~ 1.85 meters'
+       width='88'
+       height='18' />
+  </subpod>
+  <subpod title=''>
+   <plaintext>~~ 185 cm  (centimeters)</plaintext>
+   <img src='http://www2.wolframalpha.com/Calculate/MSP/MSP4902171ff79hfgigi11000043ed40097i3f66c8?MSPStoreType=image/gif&amp;s=11'
+       alt='~~ 185 cm  (centimeters)'
+       title='~~ 185 cm  (centimeters)'
+       width='150'
+       height='18' />
+  </subpod>
+  <subpod title=''>
+   <plaintext>~~ 2.02 yards</plaintext>
+   <img src='http://www2.wolframalpha.com/Calculate/MSP/MSP4912171ff79hfgigi1100000i6h94e6b52e5de3?MSPStoreType=image/gif&amp;s=11'
+       alt='~~ 2.02 yards'
+       title='~~ 2.02 yards'
+       width='81'
+       height='18' />
+  </subpod>
+ </pod>
+ <pod title='Comparisons as height'
+     scanner='Unit'
+     id='ComparisonAsHeight'
+     position='400'
+     error='false'
+     numsubpods='2'>
+  <subpod title=''>
+   <plaintext> ~~ (0.6 to 0.7) × story ( 8 to 10 ft )</plaintext>
+   <img src='http://www2.wolframalpha.com/Calculate/MSP/MSP4922171ff79hfgigi110000421g8cg09iif0f2i?MSPStoreType=image/gif&amp;s=11'
+       alt=' ~~ (0.6 to 0.7) × story ( 8 to 10 ft )'
+       title=' ~~ (0.6 to 0.7) × story ( 8 to 10 ft )'
+       width='198'
+       height='18' />
+  </subpod>
+  <subpod title=''>
+   <plaintext> ~~ 1.1 × average human height (~~ 1.7 m )</plaintext>
+   <img src='http://www2.wolframalpha.com/Calculate/MSP/MSP4932171ff79hfgigi11000017e43d2db27487i9?MSPStoreType=image/gif&amp;s=11'
+       alt=' ~~ 1.1 × average human height (~~ 1.7 m )'
+       title=' ~~ 1.1 × average human height (~~ 1.7 m )'
+       width='248'
+       height='18' />
+  </subpod>
+ </pod>
+ <pod title='Corresponding quantity'
+     scanner='Unit'
+     id='CorrespondingQuantity'
+     position='500'
+     error='false'
+     numsubpods='1'>
+  <subpod title=''>
+   <plaintext>Maximum distance visible from that height:
+  | 3 miles
+  | 15938 feet
+  | 4.9 km  (kilometers)
+  | 4858 meters</plaintext>
+   <img src='http://www2.wolframalpha.com/Calculate/MSP/MSP4942171ff79hfgigi1100005gdace7g48e4bgf4?MSPStoreType=image/gif&amp;s=11'
+       alt='Maximum distance visible from that height:
+  | 3 miles
+  | 15938 feet
+  | 4.9 km  (kilometers)
+  | 4858 meters'
+       title='Maximum distance visible from that height:
+  | 3 miles
+  | 15938 feet
+  | 4.9 km  (kilometers)
+  | 4858 meters'
+       width='286'
+       height='101' />
+  </subpod>
+ </pod>
+ <assumptions count='1'>
+  <assumption type='SubCategory'
+      word='barack obama'
+      template='Assuming ${desc1}. Use ${desc2} instead'
+      count='2'>
+   <value name='BarackObama'
+       desc='Barack Obama'
+       input='*DPClash.PersonE.barack+obama-_*BarackObama-' />
+   <value name='BarackObamaSr1936'
+       desc='Barack Obama, Sr.'
+       input='*DPClash.PersonE.barack+obama-_*BarackObamaSr1936-' />
+  </assumption>
+ </assumptions>
+ <sources count='1'>
+  <source url='http://www.wolframalpha.com/sources/PeopleDataSourceInformationNotes.html'
+      text='People data' />
+ </sources>
+</queryresult>

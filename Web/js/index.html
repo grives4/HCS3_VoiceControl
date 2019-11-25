@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html  manifest="hcs.manifest">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+<link rel="apple-touch-startup-image" href="images/hcsSplash.jpg">
+<link href="http://fonts.googleapis.com/css?family=Share:400" rel="stylesheet"> <!-- The button font -->   
+<link rel="stylesheet" href="css/jhButton.css"> <!-- Buttons CSS syles -->    
+<link rel="stylesheet" href="css/jhb-zone.css"> 
+<script src="js/jquery-1.7.1.min.js"></script>  <!-- jQuery -->
+<script src="js/jquery.jhButton.min.js"></script>
+<script src="js/jhb-zone.js"></script>
+
+<style>
+
+table td { 
+  display: table-cell;
+  vertical-align: middle; 
+  text-align: left;
+}
+
+select {
+  width: 100%;
+  max-width: 75px;
+  min-width: 75px;
+}
+
+p1 { font-size: 4.3vw;
+}
+p2 { font-size: 4.2vmin;
+}
+p3 { font-size: 5.0vmin;
+}
+p4 { font-size: 4.0vmin;
+}
+p5 { font-size: 4.0vmin;
+}
+
+
+</style>
+
+<script type="text/javascript">
+
+$(window).load(function(){ 
+    $('.jhButton').jhButton({ 
+        fx : "iconCircle",                  // Rollover effect type : "iconCircle" , "shine" or "none"
+        fxAlpha : 0.8,                      // Rollover effect opacity : 0.0 -> 1.0
+        fxColor : "#FFFFFF",            // Rollover effect color : hex color value
+        crystal : "curve",                // Crystal effect type : "linear", "curve", "diagonal" or "none"
+        crystalColor : "#FFFFFF",    // Crystal effect color : hex value
+        crystalAlpha : 0.13,            // Crystal effect opacity : 0.0 -> 1.0
+        iconColor : "auto",             // Set icon color, if iconTint is true : hex color value or "auto"
+        iconsPath : "icons/",          // Set icon folder path
+        iconTint : true                   // Tint icon or not : true or false
+    });
+});
+
+
+function vibrate() {
+     if ('vibrate' in navigator) {
+         navigator.vibrate(50);
+     }
+}
+
+jQuery(document).ready(function(){
+	jQuery('#mce').live('click', function(event) {  
+	     vibrate();      
+		 jQuery('#mediaRemoteContent').show();
+		 jQuery('#zoneContent').hide();
+		 jQuery('#blindsContent').hide();
+		 jQuery('#radioContent').hide();
+		 jQuery('#pandoraContent').hide();
+		 jQuery('#settingsContent').hide();
+	});
+
+	jQuery('#zone').live('click', function(event) {     
+	     vibrate();    
+		 jQuery('#mediaRemoteContent').hide();
+		 jQuery('#zoneContent').show();
+		 jQuery('#blindsContent').hide();
+		 jQuery('#radioContent').hide();
+		 jQuery('#pandoraContent').hide();
+		 jQuery('#settingsContent').hide();
+    });
+	jQuery('#blinds').live('click', function(event) {   
+	     vibrate();      
+		 jQuery('#mediaRemoteContent').hide();
+		 jQuery('#zoneContent').hide();
+		 jQuery('#blindsContent').show();
+		 jQuery('#radioContent').hide();
+		 jQuery('#pandoraContent').hide();
+		 jQuery('#settingsContent').hide();
+    });
+	jQuery('#radio').live('click', function(event) {
+	     vibrate();         
+		 jQuery('#mediaRemoteContent').hide();
+		 jQuery('#zoneContent').hide();
+		 jQuery('#blindsContent').hide();
+		 jQuery('#radioContent').show();
+		 jQuery('#pandoraContent').hide();
+		 jQuery('#settingsContent').hide();
+    });
+	jQuery('#pandora').live('click', function(event) {  
+	     vibrate();       
+		 jQuery('#mediaRemoteContent').hide();
+		 jQuery('#zoneContent').hide();
+		 jQuery('#blindsContent').hide();
+		 jQuery('#radioContent').hide();
+		 jQuery('#pandoraContent').show();
+		 jQuery('#settingsContent').hide();
+    });
+	jQuery('#settings').live('click', function(event) { 
+	     vibrate();        
+		 jQuery('#mediaRemoteContent').hide();
+		 jQuery('#zoneContent').hide();
+		 jQuery('#blindsContent').hide();
+		 jQuery('#radioContent').hide();
+		 jQuery('#pandoraContent').hide();
+		 jQuery('#settingsContent').show();
+    });
+	jQuery('#keyboard').live('click', function(event) { 
+	     vibrate();        
+	     $('#keyboardContent').append('<input type="text" id="KeyboardInput"  onkeyup="sendKeyboardButton()" onblur="$(\'#KeyboardInput\').remove()">')
+         $('#KeyboardInput').focus();
+    });
+});
+
+
+</script>
+
+<script type="text/javascript">
+
+ws = new WebSocket("ws://" + window.location.host + "/ws");
+ws.onopen = function() { wsclosed = false; };
+ws.onmessage = function (evt) { messageReceived(evt); }
+ws.onclose = function() { wsclosed = true; };
+
+function messageReceived(evt) {
+    var received_msg = evt.data;
+    data = received_msg.split(',');
+
+    if (data[0] == 'radio') {
+       $("#RadioStation").val(data[1]);
+    }
+    if (data[0] == 'volume') {
+       $("#" + data[1].replace(/ /g, "_") + "volume").val(data[2]);
+       console.log(data);
+    }
+    if (data[0] == 'treble') {
+       $("#" + data[1].replace(/ /g, "_") + "treble").val(data[2]);
+    }
+    if (data[0] == 'base') {
+       $("#" + data[1].replace(/ /g, "_") + "base").val(data[2]);
+    }
+    if (data[0] == 'source') {
+       $("#" + data[1].replace(/ /g, "_") + "source").val(data[2]);
+    }
+};
+
+
+function sendcommand(name, value) {
+   processRequest(JSON.stringify({ type: "command", name: name, value: value}));
+}
+
+function changevolume(zone, value) {
+   processRequest(JSON.stringify({ type: "volume", zone: zone, value: value}));
+}
+ 
+function changetreble(zone, value) {
+   processRequest(JSON.stringify({ type: "treble", zone: zone, value: value}));
+}
+
+function changebase(zone, value) {
+   processRequest(JSON.stringify({ type: "base", zone: zone, value: value}));
+}
+   	
+function sendKeyboardButton() {
+    processRequest(JSON.stringify({ type: "keypress", key: $('#KeyboardInput').val()}));
+    if ($('#KeyboardInput').val() == "") {
+        $('#KeyboardInput').blur();  //blur = unfocus
+    }
+    //todo:  Add functionality to handle backspace.
+    $('#KeyboardInput').val("");
+}
+
+function processRequest(request) {
+    vibrate(); 
+    if (wsclosed) {
+    	//The socket was closed, reopen.
+		ws = new WebSocket("ws://" + window.location.host + "/ws");
+		ws.onopen = function() { wsclosed = false; };
+		ws.onmessage = function (evt) { messageReceived(evt); }
+		ws.onclose = function() { wsclosed = true; };
+
+		//Wait until the socket has a chance to be openned.
+		setTimeout(function() { ws.send(request); },500);
+	}
+	else {
+		ws.send(request);
+    }
+}
+
+function changeradiostation(radioStation) {
+    processRequest(JSON.stringify({ type: "radio", station: radioStation}));
+}
+
+   function getinfo(value) {
+	 
+     request = new XMLHttpRequest();   
+     data = 'type=radiostation&name=' + value
+     request.open('POST', '/getinfo', true);
+     request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+     request.setRequestHeader('Content-length', data.length);
+     request.setRequestHeader('Connection', 'close');
+     request.send(data);
+
+     request.onreadystatechange=function() {
+         if(request.readyState == 4)
+         {
+            document.getElementById("station").innerHTML = request.responseText;
+         } 
+         else
+         {
+            document.getElementById("station").innerHTML = request.readyState;
+         }
+     }
+     
+   }
+   
+   </script>
+
+</head>
+<body style="margin-top: 0px; margin-left: 0px; margin-bottom: 0px; margin-right: 0px; background-color: black;" link="#FFFFFF" vlink="#FFFFFF" alink="#FFFFFF">
+   <div id="mediaRemoteContent" style='background-color: black;'>mre
+      <!--
+         <a href="javascript:WebSocketTest()">Run WebSocket</a>         
+      -->
+      <nav>
+         <font color="white"><p2>
+            &nbsp;&nbsp;
+            <a href="#" onclick="sendcommand('movies')">Movies</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="#" onclick="sendcommand('recorded')">Recorded TV</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="#" onclick="sendcommand('guide')">Guide</a>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="#" onclick="sendcommand('TVlive')">Live TV</p2></a>
+         </font>
+      </nav>   
+      <section>
+         <article>
+            <br>
+            &nbsp;
+            <input type="image" src="images/Back.png" height="18%" width="18%" onclick="sendcommand('back')">                   
+            <input type="image" src="images/Rewind.png" height="18%" width="18%" onclick="sendcommand('rewind')">                    
+            <input type="image" src="images/SkipBack.png" height="18%" width="18%" onclick="sendcommand('skipback')">                    
+            <input type="image" src="images/SkipForward.png" height="18%" width="18%" onclick="sendcommand('skipforward')">                    
+            <input type="image" src="images/FastForward.png" height="18%" width="18%" onclick="sendcommand('fastforward')">                    
+            <br>
+         </article>
+      </section>
+      <section>
+         <article  style="float: left; width: 45%;">
+            <p1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p1>
+            <input type="image" src="images/UpArrow.png" height="28%" width="28%" onclick="sendcommand('up')">                    
+            <br>
+            <input type="image" src="images/RightArrow.png" height="28%" width="28%" onclick="sendcommand('left')">                    
+            <input type="image" src="images/Enter.png" height="30%" width="30%" onclick="sendcommand('enter')">                    
+            <input type="image" src="images/LeftArrow.png" height="28%" width="28%" onclick="sendcommand('right')">                    
+            <br>
+            <p1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</p1>
+            <input type="image" src="images/DownArrow.png" height="28%" width="28%" onclick="sendcommand('down')">                    
+         </article>
+         <article style="float: left; width: 18%;">
+            <br>
+            <input type="image" src="images/ChannelUp.png" height="70%" width="70%" onclick="sendcommand('channelup')">                    
+            <br>
+            <input type="image" src="images/ChannelDown.png" height="70%" width="70%" onclick="sendcommand('channeldown')">                    
+         </article>
+         <article>
+            <br>
+            <input type="image" src="images/Play.png" height="16%" width="16%" onclick="sendcommand('play')">                    
+            <input type="image" src="images/Pause.png" height="16%" width="16%" onclick="sendcommand('pause')">                    
+            <br>
+            <input type="image" src="images/Stop.png" height="16%" width="16%" onclick="sendcommand('stop')">                    
+            <input type="image" src="images/Record.png" height="16%" width="16%" onclick="sendcommand('record')">                    
+         </article>
+         <br>
+         <br>
+      </section>
+      <section style="float: left; width: 50%;">
+         <font color="white"><p3>&nbsp;&nbsp;&nbsp;${mceConfig['ZoneA']['Title']}</p3></font>
+         <br>
+         <article style="float: left; width: 50%; align: center;">
+            <input type="image" src="images/OnButton.png" height="70%" width="100%" onclick="sendcommand('${mceConfig['ZoneA']['On']}')">  
+            <br>                  
+            <input type="image" src="images/OffButton.png" height="70%" width="100%" onclick="sendcommand('${mceConfig['ZoneA']['Off']}')">                    
+         </article>
+         <article>
+            <input type="image" src="images/UpArrow.png" height="28%" width="28%" onclick="sendcommand('${mceConfig['ZoneA']['Up']}')">                    
+            <br>                  
+            <input type="image" src="images/DownArrow.png" height="28%" width="28%" onclick="sendcommand('${mceConfig['ZoneA']['Down']}')">                    
+         </article>
+      </section>
+      <section style="float: left; width: 50%; align: center;">
+         <font color="white"><p3>&nbsp;&nbsp;&nbsp;${mceConfig['ZoneB']['Title']}</p3></font>
+         <br>
+         <article style="float: left; width: 50%;">
+            <input type="image" src="images/OnButton.png" height="70%" width="100%" onclick="sendcommand('${mceConfig['ZoneB']['On']}')">  
+            <br>                  
+            <input type="image" src="images/OffButton.png" height="70%" width="100%" onclick="sendcommand('${mceConfig['ZoneB']['Off']}')">                    
+         </article>
+         <article>
+            <input type="image" src="images/UpArrow.png" height="28%" width="28%" onclick="sendcommand('${mceConfig['ZoneB']['Up']}')">                    
+            <br>                  
+            <input type="image" src="images/DownArrow.png" height="28%" width="28%" onclick="sendcommand('${mceConfig['ZoneB']['Down']}')">                    
+         </article>
+      </section>
+   </div>
+   <div id="zoneContent"  style='display: none; background-color: black;'>
+   	  <table width="100%" border="0" cellpadding="0">
+        % for location in systemConfiguration["locations"]:
+            <tr height="60%">
+                <td width=40%">
+                    <font face="verdana" color="white"><p4>${location}</p4</font</a></td>
+                <td width="40%">
+                    
+                    <input type="image" src="images/RightArrow.png" alt="Right Arrow" height="40%" width="30%" onclick="sendcommand('${location}down')">                    
+                    <input type="number" id="${location.replace(" ", "_")}volume" min="0" max="100"  style="height: 40%; width: 20%; vertical-align: top;" value="${systemStatus[location]['Volume']}" onchange="changevolume('${location}',this.value)">
+                    <input type="image" src="images/LeftArrow.png" alt="Left Arrow" height="40%" width="30%" onclick="sendcommand('${location}up')">
+                    <!--
+                    <a href="#" class="jhb-zone icon-arrowRight" onclick="sendcommand('${location}volumeup')"></a>
+                                        -->
+
+                </td>
+                <td width="30%" height="40%> 
+                    <select id="${location.replace(" ", "_")}source" onchange="sendcommand('${location}' + this.options[this.selectedIndex].value)">
+                        % for item in systemConfiguration["options"]:
+                            <option  
+                                % if systemStatus[location]['Input'] == item:
+                                    selected="selected"
+                                % endif
+                            >${item}</option>
+                        % endfor
+                    </select>     
+                </td>
+            </tr>
+        % endfor 
+           </table>
+           <hr>
+            <table width="100%" border="0" cellpadding="0">      
+           <tr height="30%">
+                   <td width="50%">
+                       <font face="verdana" color="white"><p5>All Zones</p5></font</a></td>
+                   <td>                    
+                       <!--
+                       <input type="image" src="images/RightArrow.png" alt="Right Arrow" height="30px" width="35px" onclick="sendcommand('alldown')">             
+                       <input type="image" src="images/LeftArrow.png" alt="Left Arrow" height="30px" width="35px" onclick="sendcommand('allup')">
+                       -->
+                       <input type="button" value="   Off    " height="30px" width="35px" onclick="sendcommand('allOff')"> 
+                       <input type="button" value="   Mute   " height="30px" width="35px" onclick="sendcommand('allmute')">    
+                       <input type="button" value="Unmute" height="30px" width="35px" onclick="sendcommand('allunmute')">                      
+                     <!--
+                       <select   onchange="sendcommand('all' + this.options[this.selectedIndex].value)">
+                           % for item in systemConfiguration["options"]:
+                               <option  
+                                   % if systemStatus[location]['Input'] == item:
+                                       selected="selected"
+                                   % endif
+                               >${item}</option>
+                           % endfor
+                               <option selected="selected"></option>
+                       </select>     
+                       -->
+                   </td>
+               </tr>
+     </table>
+   </div>
+   
+   
+   <div id="radioContent" style='display: none; background-color: black;'>
+      <div style="background-color: black; position:fixed; top:0;  width: 100%;">
+         <input type="number" id="RadioStation" min="87.9" max="107.9" value="${systemStatus['RadioStation']}" onchange="changeradiostation(this.value)" style="width: 100%; height: 50px;padding-left: 0px;border-left-width: 0px;border-right-width: 0px;padding-right: 0px;font-size:35px">
+         <hr>
+      </div>
+      <div style="position: fixed; top: 100px; width: 100%;">
+        <div  align="center">
+        <table width="100%"border="0" cellpadding="0">
+            <tr><th width="33%" /><th width="33%" /><th width="33%" /></tr>
+            <% column = 1 %>
+            % for station in systemConfiguration["radiostations"]:
+                % if column == 1:
+                    <tr style="height: 50px;">
+                % endif
+                    <% stationname = station  %>
+                    % if len(stationname) == 4:
+                         <% stationname = "&nbsp;" + stationname + "&nbsp;" %>
+                    % endif
+                    <td style="text-align: center;"><a href="#" id="${station}radio" onclick="changeradiostation('${station}')" class="jhb-zone large">${stationname}</a></td>
+                % if column == 3:
+                    <% column = 0 %>
+                    </tr>
+                % endif
+                <% column += 1 %>
+            % endfor 
+            % if column > 1:
+                </tr>
+            % endif
+        </table>
+        </div>
+     </div>
+   </div> 
+     
+   <!--
+      <div id="blindsContent" style='display: none; background-color: black;'>blinds
+         <table width="100%" border="0" cellpadding="0">
+           % for blind in systemConfiguration["blinds"]:
+               <tr height="40px">
+                   <td width="100"><a href="#" class="jhb-main">${blind}</a></td>
+                   <td width="20"><a href="#" id="${blind}up" class="jhb-leftarrow icon-arrowUp"></a></td>
+                   <td width="20"><a href="#" id="${blind}down" class="jhb-leftarrow icon-arrowDown"></a></td>
+               </tr>
+           % endfor 
+        </table>
+      </div>
+   -->
+     
+   <div id="pandoraContent" style='display: none; background-color: black;'>
+      <div style="position: fixed; width=300px height=60px">
+           <input type="text" id="PandoraStation" value="${systemStatus['PandoraStation']}" width="50px">
+           <hr>
+      </div>
+      <div height="100%" style="overflow:scroll; display: block;">
+        
+        <table width="100%"border="0" cellpadding="0">
+            % for station in pandorastations:
+                <tr height="40px">
+                    <td width="100"><a href="#" id="${station}pandora" class="jhb-main big">${station}</a></td>
+                </tr>
+            % endfor 
+        </table>
+     </div>
+   </div>
+
+   <div id="settingsContent" style='display: none; background-color: black'>
+      <table width="330px" border="0" cellpadding="0">
+            <tr height="30px">
+                <td width="100px">
+                <td width="110px">
+                   <font face="verdana" size="3" color="white"><b>Treble</b></font>
+                </td>
+                <td width="110px"> 
+                   <font face="verdana" size="3" color="white"><b>Base</b></font>
+                </td>
+            </tr>
+      </table>
+      <hr>
+      <table width="330px" border="0" cellpadding="0">
+      
+        % for location in systemConfiguration["locations"]:
+            <tr height="30px">
+                <td width="100px">
+                    <font face="verdana" size="4" color="white">${location}</font</a></td>
+                <td width="110px">
+                    <input type="number" id="${location.replace(" ", "_")}treble" min="0" max="100"  style="height: 20px; width: 30px; vertical-align: top;" value="${systemStatus[location]['Treble']}" onchange="changetreble('${location}',this.value)">
+                </td>
+                <td width="110px"> 
+                    <input type="number" id="${location.replace(" ", "_")}base" min="0" max="100"  style="height: 20px; width: 30px; vertical-align: top;" value="${systemStatus[location]['Base']}" onchange="changebase('${location}',this.value)">    
+                </td>
+            </tr>
+        % endfor 
+      </table>
+      <br>
+      <font face="verdana" size="2" color="white">Note: Zone must be on to set.</font</a></td>
+   </div>
+   
+   <div id="keyboardContent" style="background-color: black; position:fixed; bottom:0; width: 100%" />
+   
+   <div style="background-color: black; position:fixed; bottom:0; width: 100%">
+    <hr>
+    <div align="center">
+    
+    <a href="#" id='mce'><input type="image" src="images/MCE_Remote.png" height="40px" width="40px"></a>
+    <a href="#" id='zone'><input type="image" src="images/Zone.png" height="40px" width="40px"></a>
+    <a href="#" id='radio'><input type="image" src="images/Radio_Button.png" height="40px" width="40px"></a>
+    % if 1==0:
+        <a href="#" id='pandora'><input type="image" src="images/Pandora.png" height="40px" width="40px"></a>
+    % endif
+    <!--
+        <a href="#" id='blinds'><input type="image" src="images/Blinds.png" height="40px" width="40px"></a>
+    -->
+    <a href="#" id='keyboard'><input type="image" src="images/Keyboard.png" height="40px" width="40px"></a>
+    <a href="#" id='settings'><input type="image" src="images/Settings.png" height="40px" width="40px"></a>
+    </div>
+   </div>
+   
+    
+</body>
+</html>

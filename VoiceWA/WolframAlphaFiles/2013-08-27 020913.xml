@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<queryresult success='false'
+    error='false'
+    numpods='0'
+    datatypes=''
+    timedout=''
+    timedoutpods=''
+    timing='3.293'
+    parsetiming='0.437'
+    parsetimedout='false'
+    recalculate=''
+    id=''
+    host='http://www2.wolframalpha.com'
+    server='17'
+    related=''
+    version='2.6'>
+ <didyoumeans count='2'>
+  <didyoumean score='0.322148' level='medium'>flight get</didyoumean>
+  <didyoumean score='0.281481' level='low'>get paid</didyoumean>
+ </didyoumeans>
+</queryresult>

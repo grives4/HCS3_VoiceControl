@@ -1,0 +1,217 @@
+<commands>
+
+   <command name="allOff">
+      <action location="1" type="source" data="1,0" delay="0" />
+      <action location="1" type="source" data="2,0" delay="0" />
+      <action location="1" type="source" data="3,0" delay="0" />
+      <action location="1" type="source" data="4,0" delay="0" />
+      <action location="1" type="source" data="5,0" delay="0" />
+      <action location="1" type="source" data="6,0" delay="0" />
+      <action location="2" type="source" data="1,0" delay="0" />
+      <action location="2" type="source" data="2,0" delay="0" />
+      <action location="2" type="source" data="3,0" delay="0" />
+      <action location="2" type="source" data="4,0" delay="0" />
+      <action location="2" type="source" data="5,0" delay="0" />
+      <action location="2" type="source" data="6,0" delay="0" />
+   </command>
+   <command name="allunmute">
+      <action location="1" type="serial" data="&amp;AH66,KEY,1,0019" delay="0" />
+      <action location="1" type="serial" data="&amp;AH66,KEY,2,0019" delay="0" />
+      <action location="1" type="serial" data="&amp;AH66,KEY,3,0019" delay="0" />
+      <action location="1" type="serial" data="&amp;AH66,KEY,4,0019" delay="0" />
+      <action location="1" type="serial" data="&amp;AH66,KEY,5,0019" delay="0" />
+      <action location="1" type="serial" data="&amp;AH66,KEY,6,0019" delay="0" />
+      <action location="2" type="serial" data="&amp;AH66,KEY,1,0019" delay="0" />
+      <action location="2" type="serial" data="&amp;AH66,KEY,2,0019" delay="0" />
+      <action location="2" type="serial" data="&amp;AH66,KEY,3,0019" delay="0" />
+      <action location="2" type="serial" data="&amp;AH66,KEY,4,0019" delay="0" />
+      <action location="2" type="serial" data="&amp;AH66,KEY,5,0019" delay="0" />
+      <action location="2" type="serial" data="&amp;AH66,KEY,6,0019" delay="0" />
+   </command>
+   <command name="allmute">
+      <action location="1" type="serial" data="&amp;AH66,KEY,1,0020" delay="0" />
+      <action location="1" type="serial" data="&amp;AH66,KEY,2,0020" delay="0" />
+      <action location="1" type="serial" data="&amp;AH66,KEY,3,0020" delay="0" />
+      <action location="1" type="serial" data="&amp;AH66,KEY,4,0020" delay="0" />
+      <action location="1" type="serial" data="&amp;AH66,KEY,5,0020" delay="0" />
+      <action location="1" type="serial" data="&amp;AH66,KEY,6,0020" delay="0" />
+      <action location="2" type="serial" data="&amp;AH66,KEY,1,0020" delay="0" />
+      <action location="2" type="serial" data="&amp;AH66,KEY,2,0020" delay="0" />
+      <action location="2" type="serial" data="&amp;AH66,KEY,3,0020" delay="0" />
+      <action location="2" type="serial" data="&amp;AH66,KEY,4,0020" delay="0" />
+      <action location="2" type="serial" data="&amp;AH66,KEY,5,0020" delay="0" />
+      <action location="2" type="serial" data="&amp;AH66,KEY,6,0020" delay="0" />
+   </command>
+   
+   <command name="AtriumOn">
+      <action location="1" type="source" data="3,2" delay="0" />
+      <action location="1" type="source" data="4,2" delay="0" />
+   </command>
+   <command name="AtriumOff">
+      <action location="1" type="source" data="3,0" delay="0" />
+      <action location="1" type="source" data="4,0" delay="0" />
+   </command>
+
+   <command name="Atriumup">
+      <action location="1" type="volume" data="3,up" delay="0" />      
+      <action location="1" type="volume" data="4,up" delay="0" />      
+   </command>
+   <command name="Atruimdown">
+      <action location="1" type="volume" data="3,down" delay="0" />      
+      <action location="1" type="volume" data="4,down" delay="0" />      
+   </command>
+
+   <command name="Great RoomOn">
+      <action location="1" type="source" data="1,2" delay="0" />
+      <action location="1" type="source" data="2,2" delay="0" />
+   </command>
+   <command name="Great RoomOff">
+      <action location="1" type="source" data="1,0" delay="0" />
+      <action location="1" type="source" data="2,0" delay="0" />
+   </command>
+
+   <command name="Great Roomup">
+      <action location="1" type="volume" data="1,up" delay="0" />      
+      <action location="1" type="volume" data="2,up" delay="0" />      
+   </command>
+   <command name="Great Roomdown">
+      <action location="1" type="volume" data="1,down" delay="0" />      
+      <action location="1" type="volume" data="2,down" delay="0" />      
+   </command>
+   
+   <command name="Great Room FrontOff"><action location="1" type="source" data="2,0" delay="0" /></command>
+   <command name="Great Room FrontRadio"><action location="1" type="source" data="2,R1" delay="0" /></command>
+   <command name="Great Room FrontTV"><action location="1" type="source" data="2,2" delay="0" /></command>
+   <command name="Great Room FrontPhone-Pandora"><action location="1" type="source" data="2,3" delay="0" /></command>
+   <command name="Great Room FrontPi-Pandora"><action location="1" type="source" data="2,4" delay="0" /></command>
+   <command name="Great Room Frontup"><action location="1" type="volume" data="2,up" delay="0" /></command>
+   <command name="Great Room Frontdown"><action location="1" type="volume" data="2,down" delay="0" /></command>
+  
+   <command name="Great Room RearOff"><action location="1" type="source" data="1,0" delay="0" /></command>
+   <command name="Great Room RearRadio"><action location="1" type="source" data="1,R1" delay="0" /></command>
+   <command name="Great Room RearTV"><action location="1" type="source" data="1,2" delay="0" /></command>
+   <command name="Great Room RearPhone-Pandora"><action location="1" type="source" data="1,3" delay="0" /></command>
+   <command name="Great Room RearPi-Pandora"><action location="1" type="source" data="1,4" delay="0" /></command>
+   <command name="Great Room Rearup"><action location="1" type="volume" data="1,up" delay="0" /></command>
+   <command name="Great Room Reardown"><action location="1" type="volume" data="1,down" delay="0" /></command>
+  
+   <command name="Atrium 1Off"><action location="1" type="source" data="3,0" delay="0" /></command>
+   <command name="Atrium 1Radio"><action location="1" type="source" data="3,R1" delay="0" /></command>
+   <command name="Atrium 1TV"><action location="1" type="source" data="3,2" delay="0" /></command>
+   <command name="Atrium 1Phone-Pandora"><action location="1" type="source" data="3,3" delay="0" /></command>
+   <command name="Atrium 1Pi-Pandora"><action location="1" type="source" data="3,4" delay="0" /></command>
+   <command name="Atrium 1up"><action location="1" type="volume" data="3,up" delay="0" /></command>
+   <command name="Atrium 1down"><action location="1" type="volume" data="3,down" delay="0" /></command>
+  
+   <command name="Atrium 2Off"><action location="1" type="source" data="4,0" delay="0" /></command>
+   <command name="Atrium 2Radio"><action location="1" type="source" data="4,R1" delay="0" /></command>
+   <command name="Atrium 2TV"><action location="1" type="source" data="4,2" delay="0" /></command>
+   <command name="Atrium 2Phone-Pandora"><action location="1" type="source" data="4,3" delay="0" /></command>
+   <command name="Atrium 2Pi-Pandora"><action location="1" type="source" data="4,4" delay="0" /></command>
+   <command name="Atrium 2up"><action location="1" type="volume" data="4,up" delay="0" /></command>
+   <command name="Atrium 2down"><action location="1" type="volume" data="4,down" delay="0" /></command>
+  
+   <command name="Master BedroomOff"><action location="1" type="source" data="5,0" delay="0" /></command>
+   <command name="Master BedroomRadio"><action location="1" type="source" data="5,R1" delay="0" /></command>
+   <command name="Master BedroomTV"><action location="1" type="source" data="5,2" delay="0" /></command>
+   <command name="Master BedroomPhone-Pandora"><action location="1" type="source" data="5,3" delay="0" /></command>
+   <command name="Master BedroomPi-Pandora"><action location="1" type="source" data="5,4" delay="0" /></command>
+   <command name="Master Bedroomup"><action location="1" type="volume" data="5,up" delay="0" /></command>
+   <command name="Master Bedroomdown"><action location="1" type="volume" data="5,down" delay="0" /></command>
+  
+   <command name="Master BathOff"><action location="1" type="source" data="6,0" delay="0" /></command>
+   <command name="Master BathRadio"><action location="1" type="source" data="6,R1" delay="0" /></command>
+   <command name="Master BathTV"><action location="1" type="source" data="6,2" delay="0" /></command>
+   <command name="Master BathPhone-Pandora"><action location="1" type="source" data="6,3" delay="0" /></command>
+   <command name="Master BathPi-Pandora"><action location="1" type="source" data="6,4" delay="0" /></command>
+   <command name="Master Bathup"><action location="1" type="volume" data="6,up" delay="0" /></command>
+   <command name="Master Bathdown"><action location="1" type="volume" data="6,down" delay="0" /></command>
+  
+   <command name="Hobby RoomOff"><action location="2" type="source" data="1,0" delay="0" /></command>
+   <command name="Hobby RoomRadio"><action location="2" type="source" data="1,R1" delay="0" /></command>
+   <command name="Hobby RoomTV"><action location="2" type="source" data="1,2" delay="0" /></command>
+   <command name="Hobby RoomPhone-Pandora"><action location="2" type="source" data="1,3" delay="0" /></command>
+   <command name="Hobby RoomPi-Pandora"><action location="2" type="source" data="1,4" delay="0" /></command>
+   <command name="Hobby Roomup"><action location="2" type="volume" data="1,up" delay="0" /></command>
+   <command name="Hobby Roomdown"><action location="2" type="volume" data="1,down" delay="0" /></command>
+  
+   <command name="GarageOff"><action location="2" type="source" data="2,0" delay="0" /></command>
+   <command name="GarageRadio"><action location="2" type="source" data="2,R1" delay="0" /></command>
+   <command name="GarageTV"><action location="2" type="source" data="2,2" delay="0" /></command>
+   <command name="GaragePhone-Pandora"><action location="2" type="source" data="2,3" delay="0" /></command>
+   <command name="GaragePi-Pandora"><action location="2" type="source" data="2,4" delay="0" /></command>
+   <command name="Garageup"><action location="1" type="volume" data="2,up" delay="0" /></command>
+   <command name="Garagedown"><action location="1" type="volume" data="2,down" delay="0" /></command>
+  
+   <command name="Back PorchOff"><action location="2" type="source" data="3,0" delay="0" /></command>
+   <command name="Back PorchRadio"><action location="2" type="source" data="3,R1" delay="0" /></command>
+   <command name="Back PorchTV"><action location="2" type="source" data="3,2" delay="0" /></command>
+   <command name="Back PorchPhone-Pandora"><action location="2" type="source" data="3,3" delay="0" /></command>
+   <command name="Back PorchPi-Pandora"><action location="2" type="source" data="3,4" delay="0" /></command>
+   <command name="Back Porchup"><action location="2" type="volume" data="3,up" delay="0" /></command>
+   <command name="Back Porchdown"><action location="2" type="volume" data="3,down" delay="0" /></command>
+  
+   <command name="Lower DeckOff"><action location="2" type="source" data="4,0" delay="0" /></command>
+   <command name="Lower DeckRadio"><action location="2" type="source" data="4,R1" delay="0" /></command>
+   <command name="Lower DeckTV"><action location="2" type="source" data="4,2" delay="0" /></command>
+   <command name="Lower DeckPhone-Pandora"><action location="2" type="source" data="4,3" delay="0" /></command>
+   <command name="Lower DeckPi-Pandora"><action location="2" type="source" data="4,4" delay="0" /></command>
+   <command name="Lower Deckup"><action location="2" type="volume" data="4,up" delay="0" /></command>
+   <command name="Lower Deckdown"><action location="2" type="volume" data="4,down" delay="0" /></command>
+  
+   <command name="Upstairs PorchOff"><action location="2" type="source" data="5,0" delay="0" /></command>
+   <command name="Upstairs PorchRadio"><action location="2" type="source" data="5,R1" delay="0" /></command>
+   <command name="Upstairs PorchTV"><action location="2" type="source" data="5,2" delay="0" /></command>
+   <command name="Upstairs PorchPhone-Pandora"><action location="2" type="source" data="5,3" delay="0" /></command>
+   <command name="Upstairs PorchPi-Pandora"><action location="2" type="source" data="5,4" delay="0" /></command>
+   <command name="Upstairs Porchup"><action location="2" type="volume" data="5,up" delay="0" /></command>
+   <command name="Upstairs Porchdown"><action location="2" type="volume" data="5,down" delay="0" /></command>
+  
+   <command name="Zone 12Off"><action location="2" type="source" data="6,0" delay="0" /></command>
+   <command name="Zone 12Radio"><action location="2" type="source" data="6,R1" delay="0" /></command>
+   <command name="Zone 12TV"><action location="2" type="source" data="6,2" delay="0" /></command>
+   <command name="Zone 12Phone-Pandora"><action location="2" type="source" data="6,3" delay="0" /></command>
+   <command name="Zone 12Pi-Pandora"><action location="2" type="source" data="6,4" delay="0" /></command>
+   <command name="Zone 12up"><action location="2" type="volume" data="6,up" delay="0" /></command>
+   <command name="Zone 12down"><action location="2" type="volume" data="6,down" delay="0" /></command>
+  
+   <command name="back"><action location="1" type="key press" data="{BS}" delay="0" /></command>
+   <command name="enter"><action location="1" type="key press" data="{ENTER}" delay="0" /></command>
+   <command name="up"><action location="1" type="key press" data="{UP}" delay="0" /></command>
+   <command name="down"><action location="1" type="key press" data="{DOWN}" delay="0" /></command>
+   <command name="left"><action location="1" type="key press" data="{LEFT}" delay="0" /></command>
+   <command name="right"><action location="1" type="key press" data="{RIGHT}" delay="0" /></command>
+   <command name="channelup"><action location="1" type="key press" data="{PGUP}" delay="0" /></command>
+   <command name="channeldown"><action location="1" type="key press" data="{PGDN}" delay="0" /></command>
+   <command name="pause"><action location="1" type="key press" data="^p" delay="0" /></command>
+   <command name="play"><action location="1" type="key press" data="^+P" delay="0" /></command>
+   <command name="stop"><action location="1" type="key press" data="^+S" delay="0" /></command>
+   <command name="rewind"><action location="1" type="key press" data="^+B" delay="0" /></command>
+   <command name="skipback"><action location="1" type="key press" data="^b" delay="0" /></command>
+   <command name="skipforward"><action location="1" type="key press" data="^f" delay="0" /></command>
+   <command name="fastforward"><action location="1" type="key press" data="^+F" delay="0" /></command>
+   <command name="movies">
+      <action location="1" type="key press" data="^e" delay="0" />
+      <action location="1" type="key press" data="{DOWN}" delay="1" />
+      <action location="1" type="key press" data="{DOWN}" delay="1" />
+      <action location="1" type="key press" data="{DOWN}" delay="1" />
+      <action location="1" type="key press" data="{DOWN}" delay="5" />
+      <action location="1" type="key press" data="{ENTER}" delay="0" />
+   </command>
+   <command name="record"><action location="1" type="key press" data="^r" delay="0" /></command>
+   <command name="recorded"><action location="1" type="key press" data="^o" delay="0" /></command>
+   <command name="guide"><action location="1" type="key press" data="^g" delay="0" /></command>
+   <command name="TVlive"><action location="1" type="key press" data="^t" delay="0" /></command>
+   <command name="menu"><action location="1" type="key press" data="%{HOME}" delay="0" /></command> 
+   <command name="reboot"><action location="1" type="key press" data="reboot" delay="0" /></command>
+   <command name="pandoraplay"><action location="1" type="pandora-keypress" data="p" delay="0" /></command>
+   <command name="pandorapause"><action location="1" type="pandora-keypress" data="p" delay="0" /></command>
+   <command name="pandoraon"><action location="1" type="pandora-keypress" data="zzz" delay="0" /></command>
+   <command name="pandoraoff"><action location="1" type="pandora-keypress" data="q" delay="0" /></command>
+   <command name="thumbsup"><action location="1" type="pandora-keypress" data="+" delay="0" /></command>
+   <command name="thumbsdown"><action location="1" type="pandora-keypress" data="-" delay="0" /></command>
+   <command name="nextsong"><action location="1" type="pandora-keypress" data="n" delay="0" /></command>
+   <command name="pandorastationbutton"><action location="1" type="change-pandora-station" data="qqqq" delay="0" /></command>
+   
+</commands>
+

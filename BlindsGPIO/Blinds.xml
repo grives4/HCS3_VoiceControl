@@ -1,0 +1,13 @@
+<blinds>
+   <blind name="Bedroom1" room="Bedroom" PWM="0" OpenLocation="250" CloseLocation="600"/>
+   <blind name="Bedroom2" room="Bedroom" PWM="1" OpenLocation="250" CloseLocation="600"/>
+   <blind name="Den1" room="Den" PWM="2" OpenLocation="250" CloseLocation="600"/>
+   <blind name="Den2" room="Den" PWM="3" OpenLocation="250" CloseLocation="600"/>
+   <blind name="Den3" room="Den" PWM="4" OpenLocation="250" CloseLocation="600"/>
+   <blind name="Kitchen1" room="Kitchen" PWM="5" OpenLocation="250" CloseLocation="600"/>
+   <blind name="Kitchen2" room="Kitchen" PWM="6" OpenLocation="250" CloseLocation="600"/>
+   <blind name="Kitchen3" room="Kitchen" PWM="7" OpenLocation="250" CloseLocation="600"/>
+   <blind name="Theater1" room="Theater" PWM="8" OpenLocation="250" CloseLocation="600"/>
+   <blind name="Theater2" room="Theater" PWM="9" OpenLocation="250" CloseLocation="600"/>
+   <blind name="Theater2" room="Theater" PWM="10" OpenLocation="250" CloseLocation="600"/>
+</blinds>

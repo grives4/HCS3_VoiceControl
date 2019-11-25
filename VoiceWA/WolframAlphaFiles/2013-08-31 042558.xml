@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<queryresult success='true'
+    error='false'
+    numpods='5'
+    datatypes='City,People,USState'
+    timedout=''
+    timedoutpods=''
+    timing='1.552'
+    parsetiming='0.192'
+    parsetimedout='false'
+    recalculate=''
+    id='MSPa1261205h69ifbi8h86bd000027e1gb0219bi50fd'
+    host='http://www2.wolframalpha.com'
+    server='15'
+    related='http://www2.wolframalpha.com/api/v2/relatedQueries.jsp?id=MSPa1262205h69ifbi8h86bd000064bgidge771c4d9i&amp;s=15'
+    version='2.6'>
+ <pod title='Input interpretation'
+     scanner='Identity'
+     id='Input'
+     position='100'
+     error='false'
+     numsubpods='1'>
+  <subpod title=''>
+   <plaintext>Miley Cyrus  (actor, etc.)</plaintext>
+   <img src='http://www2.wolframalpha.com/Calculate/MSP/MSP1263205h69ifbi8h86bd00001gbec111c3h52gii?MSPStoreType=image/gif&amp;s=15'
+       alt='Miley Cyrus  (actor, etc.)'
+       title='Miley Cyrus  (actor, etc.)'
+       width='160'
+       height='18' />
+  </subpod>
+ </pod>
+ <pod title='Basic information'
+     scanner='Data'
+     id='BasicInformation:PeopleData'
+     position='200'
+     error='false'
+     numsubpods='1'>
+  <subpod title=''>
+   <plaintext>full name | Destiny Hope Cyrus
+date of birth | Monday, November 23, 1992 (age: 20 years)
+place of birth | Nashville, Tennessee</plaintext>
+   <img src='http://www2.wolframalpha.com/Calculate/MSP/MSP1264205h69ifbi8h86bd00005h17fe9a3ag8heh3?MSPStoreType=image/gif&amp;s=15'
+       alt='full name | Destiny Hope Cyrus
+date of birth | Monday, November 23, 1992 (age: 20 years)
+place of birth | Nashville, Tennessee'
+       title='full name | Destiny Hope Cyrus
+date of birth | Monday, November 23, 1992 (age: 20 years)
+place of birth | Nashville, Tennessee'
+       width='429'
+       height='100' />
+  </subpod>
+ </pod>
+ <pod title='Image'
+     scanner='Data'
+     id='Image:PeopleData'
+     position='300'
+     error='false'
+     numsubpods='0'
+     async='http://www2.wolframalpha.com/api/v2/asyncPod.jsp?id=MSPa1265205h69ifbi8h86bd00004598fa469g80ei3h&amp;s=15' />
+ <pod title='Timeline'
+     scanner='Data'
+     id='Timeline:PeopleData'
+     position='400'
+     error='false'
+     numsubpods='0'
+     async='http://www2.wolframalpha.com/api/v2/asyncPod.jsp?id=MSPa1266205h69ifbi8h86bd00003babe21g5d69004d&amp;s=15' />
+ <pod title='Notable facts'
+     scanner='Data'
+     id='NotableFacts:PeopleData'
+     position='500'
+     error='false'
+     numsubpods='1'>
+  <subpod title=''>
+   <plaintext>Actress and pop singer-songwriter who gained notable fame for her role on the Disney Channel&apos;s sitcom and franchise Hannah Montana, which established her as a teen idol
+Performed in concert as both herself and as character Hannah Montana on the Best of Both Worlds Tour
+Began presenting a more adult image with her 2009 album release
+Recorded the accompanying movie soundtracks for Hannah Montana and Hannah Montana 2/Meet Miley Cyrus</plaintext>
+   <img src='http://www2.wolframalpha.com/Calculate/MSP/MSP1267205h69ifbi8h86bd000028ich095667381bi?MSPStoreType=image/gif&amp;s=15'
+       alt='Actress and pop singer-songwriter who gained notable fame for her role on the Disney Channel&apos;s sitcom and franchise Hannah Montana, which established her as a teen idol
+Performed in concert as both herself and as character Hannah Montana on the Best of Both Worlds Tour
+Began presenting a more adult image with her 2009 album release
+Recorded the accompanying movie soundtracks for Hannah Montana and Hannah Montana 2/Meet Miley Cyrus'
+       title='Actress and pop singer-songwriter who gained notable fame for her role on the Disney Channel&apos;s sitcom and franchise Hannah Montana, which established her as a teen idol
+Performed in concert as both herself and as character Hannah Montana on the Best of Both Worlds Tour
+Began presenting a more adult image with her 2009 album release
+Recorded the accompanying movie soundtracks for Hannah Montana and Hannah Montana 2/Meet Miley Cyrus'
+       width='485'
+       height='198' />
+  </subpod>
+ </pod>
+ <sources count='1'>
+  <source url='http://www.wolframalpha.com/sources/PeopleDataSourceInformationNotes.html'
+      text='People data' />
+ </sources>
+</queryresult>

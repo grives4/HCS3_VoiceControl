@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<queryresult success='true'
+    error='false'
+    numpods='3'
+    datatypes='Movie'
+    timedout=''
+    timedoutpods=''
+    timing='0.782'
+    parsetiming='0.214'
+    parsetimedout='false'
+    recalculate=''
+    id='MSPa1741gigb0d0ag2965d8000069bi7g477ha1da61'
+    host='http://www2.wolframalpha.com'
+    server='4'
+    related='http://www2.wolframalpha.com/api/v2/relatedQueries.jsp?id=MSPa1751gigb0d0ag2965d80000373b4cf45c1i2h6i&amp;s=4'
+    version='2.6'>
+ <pod title='Input interpretation'
+     scanner='Identity'
+     id='Input'
+     position='100'
+     error='false'
+     numsubpods='1'>
+  <subpod title=''>
+   <plaintext>The Great Gatsby  (movie) | writer</plaintext>
+   <img src='http://www2.wolframalpha.com/Calculate/MSP/MSP1761gigb0d0ag2965d80000510gd6a5if7e694c?MSPStoreType=image/gif&amp;s=4'
+       alt='The Great Gatsby  (movie) | writer'
+       title='The Great Gatsby  (movie) | writer'
+       width='240'
+       height='23' />
+  </subpod>
+ </pod>
+ <pod title='Result'
+     scanner='Data'
+     id='Result'
+     position='200'
+     error='false'
+     numsubpods='1'
+     primary='true'>
+  <subpod title=''>
+   <plaintext>Baz Luhrmann  |  Craig Pearce</plaintext>
+   <img src='http://www2.wolframalpha.com/Calculate/MSP/MSP1771gigb0d0ag2965d8000049bi795idi5h467b?MSPStoreType=image/gif&amp;s=4'
+       alt='Baz Luhrmann  |  Craig Pearce'
+       title='Baz Luhrmann  |  Craig Pearce'
+       width='206'
+       height='18' />
+  </subpod>
+ </pod>
+ <pod title='Basic movie information'
+     scanner='Data'
+     id='BasicInformation:MovieData'
+     position='300'
+     error='false'
+     numsubpods='1'>
+  <subpod title=''>
+   <plaintext>title | The Great Gatsby
+director | Baz Luhrmann
+release date | May 10, 2013  (113 days ago)
+runtime | 142 minutes  (2 hours 22 minutes)
+writers | Baz Luhrmann  |  Craig Pearce
+genres | drama  |  romance
+MPAA rating | PG-13</plaintext>
+   <img src='http://www2.wolframalpha.com/Calculate/MSP/MSP1781gigb0d0ag2965d800002f7a36e3305eh1d6?MSPStoreType=image/gif&amp;s=4'
+       alt='title | The Great Gatsby
+director | Baz Luhrmann
+release date | May 10, 2013  (113 days ago)
+runtime | 142 minutes  (2 hours 22 minutes)
+writers | Baz Luhrmann  |  Craig Pearce
+genres | drama  |  romance
+MPAA rating | PG-13'
+       title='title | The Great Gatsby
+director | Baz Luhrmann
+release date | May 10, 2013  (113 days ago)
+runtime | 142 minutes  (2 hours 22 minutes)
+writers | Baz Luhrmann  |  Craig Pearce
+genres | drama  |  romance
+MPAA rating | PG-13'
+       width='339'
+       height='228' />
+  </subpod>
+  <states count='1'>
+   <state name='More'
+       input='BasicInformation:MovieData__More' />
+  </states>
+ </pod>
+ <assumptions count='2'>
+  <assumption type='Clash'
+      word='great gatsby'
+      template='Assuming &quot;${word}&quot; is ${desc1}. Use as ${desc2} instead'
+      count='2'>
+   <value name='Movie'
+       desc='a movie'
+       input='*C.great+gatsby-_*Movie-' />
+   <value name='Book'
+       desc='a book'
+       input='*C.great+gatsby-_*Book-' />
+  </assumption>
+  <assumption type='SubCategory'
+      word='great gatsby'
+      template='Assuming ${desc1}. Use ${desc2} instead'
+      count='4'>
+   <value name='TheGreatGatsby2012BazmarkFilms'
+       desc='The Great Gatsby (2013)'
+       input='*DPClash.MovieE.great+gatsby-_*TheGreatGatsby2012BazmarkFilms-' />
+   <value name='TheGreatGatsby1949ParamountPictures'
+       desc='The Great Gatsby (1949)'
+       input='*DPClash.MovieE.great+gatsby-_*TheGreatGatsby1949ParamountPictures-' />
+   <value name='TheGreatGatsbyFamousPlayersLaskyCorporation'
+       desc='The Great Gatsby (1926)'
+       input='*DPClash.MovieE.great+gatsby-_*TheGreatGatsbyFamousPlayersLaskyCorporation-' />
+   <value name='TheGreatGatsbyParamountPictures'
+       desc='The Great Gatsby (1974)'
+       input='*DPClash.MovieE.great+gatsby-_*TheGreatGatsbyParamountPictures-' />
+  </assumption>
+ </assumptions>
+ <sources count='1'>
+  <source url='http://www.wolframalpha.com/sources/MovieDataSourceInformationNotes.html'
+      text='Movie data' />
+ </sources>
+</queryresult>
