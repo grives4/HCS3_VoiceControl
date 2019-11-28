@@ -141,18 +141,18 @@ class WebSocketHandler(tornado.websocket.WebSocketHandler):
             zone,chassis = configuration().zone_location(request['zone'])
             requestprocessor().change_base(int(request['value']), zone,chassis)
             response = ['base,' + request['zone'] + "," + request['value'] ]
-        elif request['type'] == "pandora":
-            PandoraRequestQueue.put(request['name'])
-            PandoraRequestReadyEvent.set() 
-            if request['name'] in ['pandoraon','nextsong','pandoraoff','thumbsdown','CurrentSong'] or len(request['name']) == 1:
-               #print('If statement hit.')
-               PandoraDataReadyEvent.wait()
-               response = []
-               while not PandoraDataQueue.empty(): 
-                  response.append(PandoraDataQueue.get())
-               PandoraDataQueue.task_done()
-               PandoraDataReadyEvent.clear()
-               #print('Done waiting.')
+        #elif request['type'] == "pandora":
+        #    PandoraRequestQueue.put(request['name'])
+        #    PandoraRequestReadyEvent.set() 
+        #    if request['name'] in ['pandoraon','nextsong','pandoraoff','thumbsdown','CurrentSong'] or len(request['name']) == 1:
+        #       #print('If statement hit.')
+        #       PandoraDataReadyEvent.wait()
+        #       response = []
+        #       while not PandoraDataQueue.empty(): 
+        #          response.append(PandoraDataQueue.get())
+        #       PandoraDataQueue.task_done()
+        #       PandoraDataReadyEvent.clear()
+        #       #print('Done waiting.')
             
         if response != "":
            #print(response)

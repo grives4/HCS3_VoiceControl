@@ -16,6 +16,8 @@ from pandora import *
 class controllers(object):
       
    def write_to_serial_port(self, data, location='1'):
+      print(data)
+      pass
       try:
          sp = serial.Serial(self.config('serial', location,'address'),self.config('serial', location,'baud'), timeout=0)
          sp.flush()

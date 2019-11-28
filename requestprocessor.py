@@ -233,7 +233,8 @@ class requestprocessor(object):
                controllers().write_to_serial_port(data,action.get('location'))
                location = self.zone_name(zone,action.get('location'))
                source = self.source_name(source)
-               response.append('source,' + location + ',' + source)
+               if (location != None):
+                   response.append('source,' + location + ',' + source)
             #Wake Computer
             if (action.get('type') == 'wake'):
                wol.send_magic_packet(action.get('data'))
