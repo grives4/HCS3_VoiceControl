@@ -3,7 +3,7 @@ import serial
 import time
 import urllib
 import urllib2
-import elementtree.ElementTree as ET
+import xml.etree.ElementTree as ET
 import socket
 from time import gmtime, strftime
 import json

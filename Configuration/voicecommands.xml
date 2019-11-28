@@ -1,0 +1,22 @@
+<voicecommands>
+   <type name="location">
+      <item name="bedroom" meaning="Master Bedroom"/>
+      <item name="great" meaning="Great Room" />
+      <item name="atrium" meaning="Atrium" />
+      <item name="porch" meaning="Back Porch" />
+      <item name="hobby" meaning="Hobby Room" />
+      <item name="everything" meaning="all" />
+      <item name="garage" meaning="Garage" />
+      <item name="all" meaning="all" />
+   </type>
+   <type name="action">
+      <item name="radio" meaning="Radio" />
+      <item name="off" meaning="Off" />
+      <item name="tv" meaning="TV" />
+      <item name="pandora" meaning="Phone-Pandora" />
+      <item name="up" meaning="Up" />
+      <item name="down" meaning="Down" />
+      <item name="mute" meaning="mute" />
+      <item name="unmute" meaning="unmute" />
+   </type>
+</voicecommands>

@@ -1,6 +1,6 @@
 from awake import wol
 import sys
-import elementtree.ElementTree as ET
+import xml.etree.ElementTree as ET
 from controllers import *
 import pdb
 from pandora import *
@@ -161,6 +161,42 @@ class requestprocessor(object):
           input = 0
       return input   
 
+   def handle_voicecommand(self, command):
+      
+      voicecommand = command.lower()
+      voicecommands = self.get_voicecommands()
+      commands = self.get_commands()
+      response = []    
+
+      commandlocation = ''
+      commandaction = ''
+
+      #Figure out location
+      for location in voicecommands['location']:
+         if (voicecommand.find(location['name']) != -1):
+            commandlocation = location['meaning']
+
+      #Figure out action
+      for action in voicecommands['action']:
+         if (voicecommand.find(action['name']) != -1):
+            commandaction = action['meaning']
+
+      #Combine the two      
+      actualCommand = commandlocation + commandaction
+      print(actualCommand)
+
+      #Validate the command
+      commandExists = False
+      for item in commands:
+         if (item['name'].lower() == actualCommand.lower()):
+            commandExists = True
+
+      #Send the command
+      if commandExists:
+         self.handle_command(actualCommand)
+
+      return response
+
    def handle_command(self,command):
 
       commands = self.get_commands()
@@ -233,6 +269,23 @@ class requestprocessor(object):
       except:
          commands = ""
       return commands
+   
+   def get_voicecommands(self):
+      try:
+         XMLtree = ET.parse("Configuration/voicecommands.xml")
+         doc = XMLtree.getroot()
+         commands = {}
+         for elem in doc.findall('type'):
+            items = []
+            for item in elem.findall('item'):
+               tempItem = {'name': item.get('name'), 'meaning': item.get('meaning')}
+               items.append(tempItem)
+            commands[elem.get('name')] = items
+      except:
+         commands = ""
+      return commands
+
+
    
    def zone_name(self,zone,chassis):
       XMLtree = ET.parse("Configuration/config.xml")
