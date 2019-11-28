@@ -34,7 +34,7 @@ PandoraDataQueue = Queue.Queue()
 #PandoraTime = Queue.Queue()
 PandoraRequestReadyEvent = threading.Event()
 PandoraDataReadyEvent = threading.Event()
-PandoraExists = True 
+PandoraExists = False 
 #Note the starting time.
 print(time.strftime("[%Y/%m/%d %H:%M:%S]  ", time.localtime()) + "started")
 #Unsolicited feedback is annoying...and unsolicited.  Turn it off.
@@ -53,17 +53,21 @@ class IndexHandler(tornado.web.RequestHandler):
       systemStatus = configuration().get_system_status_template()
       systemConfiguration = configuration().get_system_configuration()
       
-      #Request the station list.
-      PandoraRequestQueue.put('StationList')
-      PandoraRequestReadyEvent.set()
+      if PandoraExists:
+        #Request the station list.
+        PandoraRequestQueue.put('StationList')
+        PandoraRequestReadyEvent.set()
+        
+        #Wait to get the station list back.
+        PandoraDataReadyEvent.wait()
+        pandorastations = PandoraDataQueue.get()
+        PandoraDataQueue.task_done()
+        PandoraDataReadyEvent.clear()
       
-      #Wait to get the station list back.
-      PandoraDataReadyEvent.wait()
-      pandorastations = PandoraDataQueue.get()
-      PandoraDataQueue.task_done()
-      PandoraDataReadyEvent.clear()
+        index = Template(filename='Web/index.html').render(mceConfig=mceConfig, systemStatus=systemStatus, systemConfiguration=systemConfiguration, pandorastations=pandorastations) 
+      else:
+        index = Template(filename='Web/index.html').render(mceConfig=mceConfig, systemStatus=systemStatus, systemConfiguration=systemConfiguration, pandorastations=[]) 
       
-      index = Template(filename='Web/index.html').render(mceConfig=mceConfig, systemStatus=systemStatus, systemConfiguration=systemConfiguration, pandorastations=pandorastations) 
       self.write(index)
       
    def check_origin(self, origin):
@@ -84,9 +88,9 @@ class CommandHandler(tornado.web.RequestHandler):
       #print "done"
       #response = requestprocessor().handle_command(commandname) 
       self.write('<html></html>')
-      pandorastations=q.get()
-      print(pandorastations)
-      print("got to queue in HCS3")
+      #pandorastations=q.get()
+      #print(pandorastations)
+      #print("got to queue in HCS3")
         
    def check_origin(self, origin):
       return bool(re.match(r'^.*?', origin)) 

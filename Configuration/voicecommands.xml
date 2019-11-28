@@ -18,5 +18,6 @@
       <item name="down" meaning="Down" />
       <item name="mute" meaning="mute" />
       <item name="unmute" meaning="unmute" />
+      <item name="on" meaning="On" />
    </type>
 </voicecommands>
