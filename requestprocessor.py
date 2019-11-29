@@ -156,6 +156,7 @@ class requestprocessor(object):
               input = input.split(",")[2]
           except:
               #print "Input not found."
+              input = 0
               pass
           return    
           input = 0

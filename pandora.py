@@ -79,14 +79,17 @@ class PandoraProcessor(threading.Thread):
                     if (action.get('data') == 'zzz'): 
                          
                         if self.PandoraRunning == False:       
-                           #Start the subprocess up for pianobar.    
-                           os.system('pianobar >/home/pi/.config/pianobar/out &')      
+                           #Start the subprocess up for pianobar. 
+                           try:   
+                              os.system('pianobar >/home/pi/.config/pianobar/out &')      
 
-                           #What for start up.
-                           time.sleep(3)
-                           #self.send_command_to_pianobar('0\r\n')
-                           #time.sleep(2)
-                           self.PandoraRunning = True
+                              #What for start up.
+                              time.sleep(3)
+                              #self.send_command_to_pianobar('0\r\n')
+                              #time.sleep(2)
+                              self.PandoraRunning = True
+                           except:
+                              self.PandoraRunning = False
 
                         #Put the info in the queue.
                         self.send_song_information()
@@ -149,14 +152,18 @@ class PandoraProcessor(threading.Thread):
    #Get the list of stations and process them.
    def get_pandora_data (self):
 
-       receivePath = '/home/pi/.config/pianobar/out'
-       clearFifo = open(receivePath, 'w').close() 
-  
+       try:
+         receivePath = '/home/pi/.config/pianobar/out'
+         clearFifo = open(receivePath, 'w').close() 
+       except:
+         pass
+
        tempStation = '0'
        tempSong = ''
        tempRemainingTime = '--'
        tempTotalTime = '--'
-  
+       tempStationList = []
+
        try:
   
           if self.PandoraRunning == False:
@@ -252,5 +259,4 @@ class PandoraProcessor(threading.Thread):
       controlPath = '/home/pi/.config/pianobar/ctl'
       fifo = open(controlPath, "w")
       fifo.write(command)
-      #print(command)
       fifo.close()

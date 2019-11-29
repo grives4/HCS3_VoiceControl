@@ -20,25 +20,24 @@ import tornado.websocket
 import re
 from tornado.options import define, options, parse_command_line
 import pdb
-#todo:  Add remote control of sound via computer.  And make it work properly.
-#todo:  Add disabling volume, treble and base when zone is off.
-LCDQueue = Queue.Queue()
-LCDEvent = threading.Event()
+
+
+
 LCDExists = configuration().config_exists('LCD')
 GPIOExists = configuration().config_exists('IO')
+PandoraExists = True
+
+LCDQueue = Queue.Queue()
+LCDEvent = threading.Event()
 PandoraRequestQueue = Queue.Queue()
 PandoraDataQueue = Queue.Queue()
-#PandoraStationList = Queue.Queue()
-#PandoraNowPlaying = Queue.Queue()
-#PandoraSong = Queue.Queue()
-#PandoraTime = Queue.Queue()
 PandoraRequestReadyEvent = threading.Event()
 PandoraDataReadyEvent = threading.Event()
-PandoraExists = False 
+
 #Note the starting time.
 print(time.strftime("[%Y/%m/%d %H:%M:%S]  ", time.localtime()) + "started")
-#Unsolicited feedback is annoying...and unsolicited.  Turn it off.
 
+#Unsolicited feedback is annoying...and unsolicited.  Turn it off.
 controllers().write_to_serial_port("&AH66,CH,UFB,OFF")
 controllers().write_to_serial_port("&AH66,CH,UFB,OFF","2")
 
@@ -53,20 +52,17 @@ class IndexHandler(tornado.web.RequestHandler):
       systemStatus = configuration().get_system_status_template()
       systemConfiguration = configuration().get_system_configuration()
       
-      if PandoraExists:
-        #Request the station list.
-        PandoraRequestQueue.put('StationList')
-        PandoraRequestReadyEvent.set()
-        
-        #Wait to get the station list back.
-        PandoraDataReadyEvent.wait()
-        pandorastations = PandoraDataQueue.get()
-        PandoraDataQueue.task_done()
-        PandoraDataReadyEvent.clear()
-      
-        index = Template(filename='Web/index.html').render(mceConfig=mceConfig, systemStatus=systemStatus, systemConfiguration=systemConfiguration, pandorastations=pandorastations) 
-      else:
-        index = Template(filename='Web/index.html').render(mceConfig=mceConfig, systemStatus=systemStatus, systemConfiguration=systemConfiguration, pandorastations=[]) 
+      #Request the station list.
+      PandoraRequestQueue.put('StationList')
+      PandoraRequestReadyEvent.set()
+    
+      #Wait to get the station list back.
+      PandoraDataReadyEvent.wait()
+      pandorastations = PandoraDataQueue.get()
+      PandoraDataQueue.task_done()
+      PandoraDataReadyEvent.clear()
+    
+      index = Template(filename='Web/index.html').render(mceConfig=mceConfig, systemStatus=systemStatus, systemConfiguration=systemConfiguration, pandorastations=pandorastations) 
       
       self.write(index)
       
@@ -85,8 +81,6 @@ class CommandHandler(tornado.web.RequestHandler):
 
       commandThread.daemon = True
       commandThread.start()
-      #print "done"
-      #response = requestprocessor().handle_command(commandname) 
       self.write('<html></html>')
       #pandorastations=q.get()
       #print(pandorastations)
@@ -112,8 +106,6 @@ class WebSocketHandler(tornado.websocket.WebSocketHandler):
         request = ast.literal_eval(message)
         response = ""
         
-        #print(request)
-        
         if 'name' in request:
             LCDQueue.put([request['name'], "Processing"])
             LCDEvent.set()
@@ -124,7 +116,6 @@ class WebSocketHandler(tornado.websocket.WebSocketHandler):
             requestprocessor().change_radio_station(request['station'])
             response = [ request['type'] + ',' + request['station'] ]
         elif request['type'] == "command":
-            #print request['name']
             response = requestprocessor().handle_command(request['name'])            
         elif request['type'] == "volume":
             zone,chassis = configuration().zone_location(request['zone'])
@@ -141,18 +132,17 @@ class WebSocketHandler(tornado.websocket.WebSocketHandler):
             zone,chassis = configuration().zone_location(request['zone'])
             requestprocessor().change_base(int(request['value']), zone,chassis)
             response = ['base,' + request['zone'] + "," + request['value'] ]
-        #elif request['type'] == "pandora":
-        #    PandoraRequestQueue.put(request['name'])
-        #    PandoraRequestReadyEvent.set() 
-        #    if request['name'] in ['pandoraon','nextsong','pandoraoff','thumbsdown','CurrentSong'] or len(request['name']) == 1:
-        #       #print('If statement hit.')
-        #       PandoraDataReadyEvent.wait()
-        #       response = []
-        #       while not PandoraDataQueue.empty(): 
-        #          response.append(PandoraDataQueue.get())
-        #       PandoraDataQueue.task_done()
-        #       PandoraDataReadyEvent.clear()
-        #       #print('Done waiting.')
+        elif request['type'] == "pandora":
+            PandoraRequestQueue.put(request['name'])
+            PandoraRequestReadyEvent.set() 
+            if request['name'] in ['pandoraon','nextsong','pandoraoff','thumbsdown','CurrentSong'] or len(request['name']) == 1:
+               #print('If statement hit.')
+               PandoraDataReadyEvent.wait()
+               response = []
+               while not PandoraDataQueue.empty(): 
+                  response.append(PandoraDataQueue.get())
+               PandoraDataQueue.task_done()
+               PandoraDataReadyEvent.clear()
             
         if response != "":
            #print(response)

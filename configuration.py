@@ -36,12 +36,33 @@ class configuration(object):
       #So request some dummy data.
       #Now request the data that we want.
       for location in locations:
-         zone,chassis = self.zone_location(location)         
-         systemStatus.append('volume,' + location + ',' + str(requestprocessor().get_volume(zone,chassis)))
-         systemStatus.append('treble,' + location + ',' + str(requestprocessor().get_treble(zone,chassis)))
-         systemStatus.append('base,' + location + ',' + str(requestprocessor().get_base(zone,chassis)))
-         systemStatus.append('source,' + location + ',' + self.source_location(requestprocessor().get_source(zone, chassis)))
+         print('---------------')
+         print(location)
+         print('---------------')
+         zone,chassis = self.zone_location(location)  
+         try:  
+            print('a')
+            systemStatus.append('volume,' + location + ',' + str(requestprocessor().get_volume(zone,chassis)))
+            print('b')
+            systemStatus.append('treble,' + location + ',' + str(requestprocessor().get_treble(zone,chassis)))
+            print('c')
+            systemStatus.append('base,' + location + ',' + str(requestprocessor().get_base(zone,chassis)))
+            print('cd')
+            print(zone)
+            print(chassis)
+            test = requestprocessor().get_source(zone, chassis)
+            print(test)
+            print('d')
+            testa = self.source_location(requestprocessor().get_source(zone, chassis))
+            print(testa)
+            print('e')
+            systemStatus.append('source,' + location + ',' + self.source_location(requestprocessor().get_source(zone, chassis)))
+         except:
+            print('Except')
+            pass
 
+      print(systemStatus)
+      print('------ The end -------')
       return systemStatus
 
    def get_system_status_template(self): 
@@ -88,6 +109,7 @@ class configuration(object):
             for item in elem.findall('item'):
                if item.get('name') == location:
                   return item.get('zone'),item.get('chassis')
+      return None
                   
    def source_location(self,option):
       XMLtree = ET.parse("Configuration/config.xml")
@@ -97,3 +119,4 @@ class configuration(object):
             for item in elem.findall('item'):
                if item.get('source') == option:
                   return item.get('name')
+      return None
