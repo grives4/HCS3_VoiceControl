@@ -1,3 +1,5 @@
+# This is a test.
+
 import lcddriver
 import threading
 from time import *
